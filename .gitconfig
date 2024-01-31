@@ -1,0 +1,14 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Carlos Ballena
+	email = 687315+cballenar@users.noreply.github.com
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /Users/cballenar/.gitignore
+[pull]
+	rebase = false
