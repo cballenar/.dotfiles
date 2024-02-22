@@ -12,3 +12,5 @@
 	excludesfile = /Users/cballenar/.gitignore
 [pull]
 	rebase = false
+[push]
+	autoSetupRemote = true
