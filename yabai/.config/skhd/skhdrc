@@ -20,8 +20,9 @@ hyper - k : yabai -m window --swap north
 hyper - l : yabai -m window --swap east
 
 ## increase/reduce width of window
-hyper - o : yabai -m window --resize right:160:0 || yabai -m window --resize left:160:0
-hyper - y : yabai -m window --resize left:-160:0 || yabai -m window --resize right:-160:0
+## resizes in chunks matching a 12 col system, 1920 / 12 = 160; 2560 / 12 = 213.333
+hyper - o : yabai -m window --resize right:213:0 || yabai -m window --resize left:213:0
+hyper - y : yabai -m window --resize left:-213:0 || yabai -m window --resize right:-213:0
 
 ## rotate tree 90
 hyper - u : yabai -m space --rotate 90
