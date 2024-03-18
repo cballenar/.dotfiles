@@ -5,6 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Set Config Home
+# Shouldn't this be already set? Is it a macOS thing?
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -32,6 +36,7 @@ HISTFILESIZE=99999
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(git gh thefuck fzf zsh-bat tmux zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 
+export ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
