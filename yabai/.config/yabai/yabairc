@@ -11,19 +11,11 @@ yabai -m config --space last layout stack
 ## Disable Yabai resizing
 declare -a unmanaged_apps=(
     "System Settings"
-    "Finder"
-    "Keka"
-    "Disk Utility"
     "System Information"
     "Activity Monitor"
-    "Spotify"
-    "Docker Desktop"
-    "ChatGPT"
+    "Disk Utility"
+    "Finder"
     "KeyCastr"
-    "Vial"
-    "Slack"
-    "Microsoft Outlook"
-    "1Password 7"
 )
 for app in "${unmanaged_apps[@]}"; do
     yabai -m rule --add app="^$app$" manage=off
