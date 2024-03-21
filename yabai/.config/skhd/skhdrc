@@ -35,29 +35,11 @@ hyper - u : yabai -m window --toggle float;\
 ## toggle window fullscreen zoom
 hyper - i : yabai -m window --toggle zoom-fullscreen
 
-## focus window
-# hyper - n : yabai -m window --focus west
-# hyper - m : yabai -m window --focus south
-# hyper - 0x2F00 : yabai -m window --focus north  # period
-# hyper - 0x2B00 : yabai -m window --focus east   # comma
-# hyper - 0x2400 : yabai -m window --focus recent # enter
-
-## focus display
-#ctrl + cmd - 1 : yabai -m window --display 1 yabai -m display --focus 1
-#ctrl + cmd - 2 : yabai -m window --display 2 yabai -m display --focus 2
-#ctrl + cmd - 3 : yabai -m window --display 3 yabai -m display --focus 3
-
-## increase window size
-#shift + alt - a : yabai -m window --resize left:-20:0
-#shift + alt - s : yabai -m window --resize bottom:0:20
-#shift + alt - w : yabai -m window --resize top:0:-20
-#shift + alt - d : yabai -m window --resize right:20:0
-
-## decrease window size
-#shift + cmd - a : yabai -m window --resize left:20:0
-#shift + cmd - s : yabai -m window --resize bottom:0:-20
-#shift + cmd - w : yabai -m window --resize top:0:20
-#shift + cmd - d : yabai -m window --resize right:-20:0
+## swap window
+#hyper - n    : yabai -m window --swap west
+#hyper - m    : yabai -m window --swap south
+#hyper - 0x2B : yabai -m window --swap north # comma
+#hyper - 0x2F : yabai -m window --swap east  # period
 
 ## rotate tree 90
 hyper - m : yabai -m space --rotate 90
@@ -66,14 +48,6 @@ hyper - m : yabai -m space --rotate 90
 # hyper - c : yabai -m space --mirror y-axis
 ## mirror tree x-axis
 # hyper - v : yabai -m space --mirror x-axis
-
-################################################################
-############################# UNUSED ###########################
-################################################################
-
-## float / unfloat window and center on screen
-#alt - t : yabai -m window --toggle float;\
-#yabai -m window --grid 4:4:1:1:2:2
 
 ## toggle sticky
 #alt - s : yabai -m window --toggle sticky
@@ -87,6 +61,10 @@ hyper - m : yabai -m space --rotate 90
 
 ## toggle window split type
 #alt - e : yabai -m window --toggle split
+
+
+#! SIP Disabled Features
+########################
 
 ## toggle window border
 #shift + alt - b : yabai -m window --toggle border
@@ -112,30 +90,3 @@ hyper - m : yabai -m space --rotate 90
 #cmd + alt - 1 : yabai -m space --focus 1
 #cmd + alt - 2 : yabai -m space --focus 2
 #cmd + alt - 3 : yabai -m space --focus 3
-#cmd + alt - 4 : yabai -m space --focus 4
-#cmd + alt - 5 : yabai -m space --focus 5
-#cmd + alt - 6 : yabai -m space --focus 6
-#cmd + alt - 7 : yabai -m space --focus 7
-#cmd + alt - 8 : yabai -m space --focus 8
-#cmd + alt - 9 : yabai -m space --focus 9
-#cmd + alt - 0 : yabai -m space --focus 10
-
-## move window
-#shift + ctrl - a : yabai -m window --move rel:-20:0
-#shift + ctrl - s : yabai -m window --move rel:0:20
-#shift + ctrl - w : yabai -m window --move rel:0:-20
-#shift + ctrl - d : yabai -m window --move rel:20:0
-
-## Swap window
-# hyper - y : yabai -m window --warp west
-# shift + cmd - j : yabai -m window --warp south
-# shift + cmd - k : yabai -m window --warp north
-# hyper - 0x21 : yabai -m window --warp east # "[" key
-
-## focus monitor
-#ctrl + alt - x  : yabai -m display --focus last
-#ctrl + alt - z  : yabai -m display --focus prev || yabai -m display --focus last
-#ctrl + alt - c  : yabai -m display --focus next || yabai -m display --focus first
-#ctrl + alt - 1  : yabai -m display --focus 1
-#ctrl + alt - 2  : yabai -m display --focus 2
-#ctrl + alt - 3  : yabai -m display --focus 3
