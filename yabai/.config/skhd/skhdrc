@@ -12,6 +12,9 @@ hyper - s : open /Applications/iTerm.app
 hyper - d : open /Applications/Visual\ Studio\ Code.app
 hyper - f : open ~/Applications/ChatGPT.app
 hyper - g : open /Applications/Slack.app
+hyper - t : open /Applications/Microsoft\ Outlook.app
+hyper - q : open /Applications/1Password\ 7.app
+hyper - w : open /Applications/Spotify.app
 
 ## swap window
 hyper - h : yabai -m window --swap west
