@@ -28,8 +28,9 @@ hyper - 0x24 : yabai -m window --focus recent # enter
 hyper - o : yabai -m window --resize right:213:0 || yabai -m window --resize left:213:0
 hyper - y : yabai -m window --resize left:-213:0 || yabai -m window --resize right:-213:0
 
-## rotate tree 90
-hyper - u : yabai -m space --rotate 90
+## float / unfloat window and center on screen
+hyper - u : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
 
 ## toggle window fullscreen zoom
 hyper - i : yabai -m window --toggle zoom-fullscreen
@@ -57,6 +58,9 @@ hyper - i : yabai -m window --toggle zoom-fullscreen
 #shift + cmd - s : yabai -m window --resize bottom:0:-20
 #shift + cmd - w : yabai -m window --resize top:0:20
 #shift + cmd - d : yabai -m window --resize right:-20:0
+
+## rotate tree 90
+hyper - m : yabai -m space --rotate 90
 
 ## mirror tree y-axis
 # hyper - c : yabai -m space --mirror y-axis
