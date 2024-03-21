@@ -16,11 +16,12 @@ hyper - t : open /Applications/Microsoft\ Outlook.app
 hyper - q : open /Applications/1Password\ 7.app
 hyper - w : open /Applications/Spotify.app
 
-## swap window
-hyper - h : yabai -m window --swap west
-hyper - j : yabai -m window --swap south
-hyper - k : yabai -m window --swap north
-hyper - l : yabai -m window --swap east
+## focus window - matches vim/tmux motions
+hyper - h    : yabai -m window --focus west || yabai -m display --focus prev
+hyper - j    : yabai -m window --focus south
+hyper - k    : yabai -m window --focus north
+hyper - l    : yabai -m window --focus east || yabai -m display --focus next
+hyper - 0x24 : yabai -m window --focus recent # enter
 
 ## increase/reduce width of window
 ## resizes in chunks matching a 12 col system, 1920 / 12 = 160; 2560 / 12 = 213.333
