@@ -32,8 +32,9 @@ hyper - y : yabai -m window --resize left:-213:0 || yabai -m window --resize rig
 hyper - u : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 
-## toggle window fullscreen zoom
-hyper - i : yabai -m window --toggle zoom-fullscreen
+## toggle window fullscreen zoom, allowing other windows to take up available space
+hyper - i : yabai -m window --toggle float;\
+            yabai -m window --grid 4:4:0:0:4:4
 
 ## swap window
 #hyper - n    : yabai -m window --swap west
