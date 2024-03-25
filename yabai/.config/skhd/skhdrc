@@ -30,7 +30,7 @@ hyper - y : yabai -m window --resize left:-213:0 || yabai -m window --resize rig
 
 ## float / unfloat window and center on screen
 hyper - u : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+            yabai -m window --grid 4:4:1:1:2:2
 
 ## toggle window fullscreen zoom, allowing other windows to take up available space
 hyper - i : yabai -m window --toggle float;\
