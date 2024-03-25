@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Add .local/bin to $PATH
+export PATH=~/.local/bin:$PATH
+
 # Set Config Home
 # Shouldn't this be already set? Is it a macOS thing?
 export XDG_CONFIG_HOME="$HOME/.config"
