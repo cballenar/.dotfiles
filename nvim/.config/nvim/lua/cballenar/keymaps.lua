@@ -38,7 +38,7 @@ vim.keymap.set("n", "<leader><enter>", "<cmd>silent !tmux neww tmux-sessionizer<
 -- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Search and Replace
-vim.keymap.set("n", "<leader>h", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>h", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace Current" })
 
 -- Make current file executable
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
