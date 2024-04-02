@@ -63,6 +63,9 @@ hyper - m : yabai -m space --rotate 90
 ## toggle window split type
 #alt - e : yabai -m window --toggle split
 
+## restart yabai
+hyper - z : yabai --restart-service
+
 
 #! SIP Disabled Features
 ########################
