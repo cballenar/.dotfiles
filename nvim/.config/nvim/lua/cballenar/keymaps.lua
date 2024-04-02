@@ -27,7 +27,7 @@ vim.keymap.set("x", "p", [["_dP]])
 -- vim.keymap.set({ "n", "v" }, "d", [["_d]])
 
 -- Calls tmux sessionizer from within vim
--- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<leader><enter>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Sessionizer" })
 
 -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
