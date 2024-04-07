@@ -8,7 +8,7 @@
 
 ## open terminal
 hyper - a : open /Applications/Arc.app
-hyper - s : open /Applications/iTerm.app
+hyper - s : open /Applications/Alacritty.app
 hyper - d : open /Applications/Visual\ Studio\ Code.app
 hyper - f : open ~/Applications/ChatGPT.app
 hyper - g : open /Applications/Slack.app
