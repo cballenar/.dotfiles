@@ -2,10 +2,11 @@
 
 ## Setup
 
-- macOS
-- iTerm 2
-- zsh + oh my zsh + p10k
-- tmux
+- Operating System: macOS
+- Terminal Emulator: alacritty
+- Shell: zsh
+- Window Management: yabai + skhd
+- Keyboard: Beekeeb Piantor Pro
 
 ## Acknowledgements
 
