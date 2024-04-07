@@ -2,6 +2,8 @@ tap "drud/ddev"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
+tap "jesseduffield/lazygit"
+tap "koekeishiya/formulae"
 tap "michaeleisel/zld"
 tap "pantheon-systems/external"
 tap "shivammathur/php"
@@ -60,12 +62,6 @@ brew "gh"
 brew "git-lfs"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
-# Framework for layout and rendering of i18n text
-brew "pango"
-# Cross-platform application and UI framework
-brew "qt"
-# Command-driven, interactive function plotting
-brew "gnuplot"
 # Manage compile and link flags for libraries
 brew "pkg-config"
 # Interpreted, interactive, object-oriented programming language
@@ -88,14 +84,22 @@ brew "libffi", link: true
 brew "python@3.9"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Image processing and image analysis library
 brew "leptonica"
 # NaCl networking and cryptography library
 brew "libsodium"
 # Text-based web browser
 brew "lynx"
+# Utility for directing compilation
+brew "make"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Fast, highly customisable system info script
+brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # HTTP/2 C Library
@@ -106,12 +110,18 @@ brew "node"
 brew "nss"
 # Manage multiple Node.js versions
 brew "nvm"
+# Framework for layout and rendering of i18n text
+brew "pango"
 # Small collection of programs that operate on patch files
 brew "patchutils"
 # Python version management
 brew "pyenv"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.12"
+# Cross-platform application and UI framework
+brew "qt"
 # Cross-platform application and UI framework
 brew "qt@5"
 # Search tool like grep and The Silver Searcher
@@ -132,6 +142,8 @@ brew "tmux"
 brew "trash"
 # Build, bundle & ship your Rust WASM application to the web
 brew "trunk"
+# Extraction utility for .zip compressed archives
+brew "unzip"
 # Internet file retriever
 brew "wget"
 # Library to create, extract, and modify Windows Imaging files
@@ -140,12 +152,18 @@ brew "wimlib"
 brew "yarn"
 # DDEV
 brew "drud/ddev/ddev"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
 # General-purpose scripting language
 brew "shivammathur/php/php@8.1", link: true
 # Offline NT Password Editor
 brew "sidneys/homebrew/chntpw"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# Open-source keystroke visualiser
+cask "keycastr"
 vscode "aaron-bond.better-comments"
 vscode "adpyke.codesnap"
 vscode "andrewdavidblum.drupal-smart-snippets"
@@ -155,23 +173,24 @@ vscode "dbaeumer.vscode-eslint"
 vscode "denoland.vscode-deno"
 vscode "dionmunk.vscode-notes"
 vscode "eamodio.gitlens"
-vscode "EditorConfig.EditorConfig"
-vscode "Equinusocio.vsc-community-material-theme"
-vscode "Equinusocio.vsc-material-theme"
+vscode "editorconfig.editorconfig"
+vscode "equinusocio.vsc-community-material-theme"
+vscode "equinusocio.vsc-material-theme"
 vscode "equinusocio.vsc-material-theme-icons"
 vscode "esbenp.prettier-vscode"
-vscode "GitHub.copilot"
-vscode "GitHub.copilot-chat"
-vscode "GitHub.vscode-pull-request-github"
-vscode "Glavin001.unibeautify-vscode"
-vscode "GraphQL.vscode-graphql"
-vscode "GraphQL.vscode-graphql-execution"
-vscode "GraphQL.vscode-graphql-syntax"
-vscode "JannisX11.batch-rename-extension"
+vscode "github.copilot"
+vscode "github.copilot-chat"
+vscode "github.vscode-pull-request-github"
+vscode "glavin001.unibeautify-vscode"
+vscode "graphql.vscode-graphql"
+vscode "graphql.vscode-graphql-execution"
+vscode "graphql.vscode-graphql-syntax"
+vscode "inferrinizzard.prettier-sql-vscode"
+vscode "jannisx11.batch-rename-extension"
 vscode "johnpapa.vscode-peacock"
-vscode "JozefChmelar.compare"
+vscode "jozefchmelar.compare"
 vscode "kakumei.php-xdebug"
-vscode "marcostazi.VS-code-drupal"
+vscode "marcostazi.vs-code-drupal"
 vscode "mblode.twig-language-2"
 vscode "mgmcdermott.vscode-language-babel"
 vscode "mikestead.dotenv"
@@ -199,17 +218,17 @@ vscode "ms-vscode.live-server"
 vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.remote-server"
 vscode "neilbrayfield.php-docblocker"
-vscode "OfHumanBondage.react-proptypes-intellisense"
+vscode "ofhumanbondage.react-proptypes-intellisense"
 vscode "paulober.pico-w-go"
 vscode "pflannery.vscode-versionlens"
-vscode "Prisma.prisma"
+vscode "prisma.prisma"
 vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
 vscode "ryu1kn.partial-diff"
 vscode "svelte.svelte-vscode"
 vscode "unifiedjs.vscode-mdx"
-vscode "VisualStudioExptTeam.intellicode-api-usage-examples"
-vscode "VisualStudioExptTeam.vscodeintellicode"
+vscode "visualstudioexptteam.intellicode-api-usage-examples"
+vscode "visualstudioexptteam.vscodeintellicode"
 vscode "vscodevim.vim"
 vscode "whatwedo.twig"
 vscode "wix.vscode-import-cost"
