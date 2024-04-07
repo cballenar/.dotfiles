@@ -144,6 +144,8 @@ brew "drud/ddev/ddev"
 brew "shivammathur/php/php@8.1", link: true
 # Offline NT Password Editor
 brew "sidneys/homebrew/chntpw"
+# GPU-accelerated terminal emulator
+cask "alacritty"
 vscode "aaron-bond.better-comments"
 vscode "adpyke.codesnap"
 vscode "andrewdavidblum.drupal-smart-snippets"
