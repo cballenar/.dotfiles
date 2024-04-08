@@ -4,7 +4,7 @@
 
 [shell]
 program = "/bin/zsh"
-args = ["-l", "-c", "tmux"]
+args = ["-l"]
 
 [window]
 padding = { x = 10, y = 10 }
