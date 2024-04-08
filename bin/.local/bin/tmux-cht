@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-selected=`cat ~/.config/tmux/tmux-cht-languages ~/.config/tmux/tmux-cht-command | fzf`
+selected=$(cat ~/.config/tmux/tmux-cht-languages ~/.config/tmux/tmux-cht-command | fzf)
 if [[ -z $selected ]]; then
-    exit 0
+	exit 0
 fi
 
 read -p "Enter Query: " query
 
+# check if selected is an available language
 if grep -qs "$selected" ~/.config/tmux/tmux-cht-languages; then
 	# check if query is empty
 	if [[ -n $query ]]; then
@@ -15,6 +16,5 @@ if grep -qs "$selected" ~/.config/tmux/tmux-cht-languages; then
 		tmux neww bash -c "curl -s cht.sh/$selected | less"
 	fi
 else
-    tmux neww bash -c "curl -s cht.sh/$selected~$query | less"
+	tmux neww bash -c "curl -s cht.sh/$selected~$query | less"
 fi
-
