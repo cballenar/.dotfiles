@@ -29,6 +29,9 @@ vim.keymap.set("x", "p", [["_dP]])
 -- Calls tmux sessionizer from within vim
 vim.keymap.set("n", "<leader><enter>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "Sessionizer" })
 
+-- Calls tmux cheat.sh from within vim
+vim.keymap.set("n", "<leader>i", "<cmd>silent !tmux neww tmux-cht<CR>", { desc = "cheat.sh" })
+
 -- vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Quick fix navigating
