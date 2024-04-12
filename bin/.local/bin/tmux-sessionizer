@@ -7,11 +7,24 @@ escaped_root=$(echo "$root_directory" | sed 's/\//\\\//g')
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find $root_directory -mindepth 2 -maxdepth 2 -type d | sed "s/$escaped_root//g" | fzf)
+	selected=$(find $root_directory -mindepth 2 -maxdepth 2 -type d | sed "s/$escaped_root//g" | fzf --print-query)
 fi
 
 if [[ -z $selected ]]; then
 	exit 0
+fi
+
+# check length of output
+output_length=$(echo "$selected" | wc -l)
+
+# if we get one line then it's the query
+if [ "$output_length" -eq 1 ]; then
+	# create a new directory from the given query
+	new_path="$root_directory$selected"
+	mkdir -p $new_path
+else
+	# reassign selected to the second line
+	selected=$(echo "$selected" | tail -n 1)
 fi
 
 # add root so it's a full path
