@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 
+# set root directory where to fuzzyfind
+root_directory=/Users/cballenar/Repositories/
+escaped_root=$(echo "$root_directory" | sed 's/\//\\\//g')
+
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/Repositories -mindepth 2 -maxdepth 2 -type d | fzf)
+	selected=$(find $root_directory -mindepth 2 -maxdepth 2 -type d | sed "s/$escaped_root//g" | fzf)
 fi
 
 if [[ -z $selected ]]; then
 	exit 0
 fi
+
+# add root so it's a full path
+selected=$root_directory$selected
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
