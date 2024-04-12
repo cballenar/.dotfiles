@@ -4,12 +4,14 @@
 root_directory=/Users/cballenar/Repositories/
 escaped_root=$(echo "$root_directory" | sed 's/\//\\\//g')
 
+# if parameter is given just open new tmux session under that name
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
 	selected=$(find $root_directory -mindepth 2 -maxdepth 2 -type d | sed "s/$escaped_root//g" | fzf --print-query)
 fi
 
+# if no value return then simply exit
 if [[ -z $selected ]]; then
 	exit 0
 fi
@@ -30,17 +32,24 @@ fi
 # add root so it's a full path
 selected=$root_directory$selected
 
+# get last directory name
 selected_name=$(basename "$selected" | tr . _)
+
+# check if tmux is running
 tmux_running=$(pgrep tmux)
 
+# if no tmux, create new session with given name
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 	tmux new-session -s $selected_name -c $selected
 	exit 0
 fi
 
+# check if session with given name doesn't exist
 if ! tmux has-session -t=$selected_name 2>/dev/null; then
 	tmux new-session -ds $selected_name -c $selected
+	# split the window and start nvim
 	tmux split-window -bt $selected_name:1 -l 80% -c $selected 'nvim .'
 fi
 
+# switch to the selected client
 tmux switch-client -t $selected_name
