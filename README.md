@@ -10,5 +10,5 @@
 
 ## Acknowledgements
 
-- git@github.com:ThePrimeagen/.dotfiles.git
-- git@github.com:GeekMasher/.dotfiles.git
+- ThePrimeagen/.dotfiles.git
+- GeekMasher/.dotfiles.git
