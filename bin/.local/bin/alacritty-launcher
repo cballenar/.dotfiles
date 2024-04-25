@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+# fetch Alacritty windows
+windows=$(yabai -m query --windows | jq '[.[] | select(.title=="Alacritty") | {id:.id, space:.space}]')
+
+# fetch visible spaces
+spaces=$(yabai -m query --spaces | jq '[.[] | select(."is-visible") | .index]')
+
+# if an alacritty window is the same as a visible space, return said space
+current_space_index=$(jq --null-input "${spaces} - (${spaces} - ([${windows} | .[] | .space])) | .[0]")
+
+# return the alacritty window id based on the space
+alac_window_id=$(jq --null-input "${windows} | .[] | select(.space == ${current_space_index}) | .id")
+
+if [[ ! -z "$alac_window_id" ]]; then
+	yabai -m window $alac_window_id --focus
+else
+	# generate label to signal when window is created and focus on it
+	LABEL=$(uuidgen)
+	yabai -m signal --add event="window_created" label="$LABEL" app="^Alacritty$" action="yabai -m window \$YABAI_WINDOW_ID --focus"
+
+	# attempt to create-window, otherwise open the app
+	alacritty msg create-window || open /Applications/Alacritty.app
+
+    # remove created signal
+    yabai -m signal --remove $LABEL
+fi
