@@ -31,6 +31,18 @@ return {
     },
   },
 
+  -- Add Undotree
+  {
+    "mbbill/undotree",
+    keys = {
+      {
+        "<leader>U",
+        "<cmd>UndotreeToggle<CR>",
+        desc = "Toggle Undotree",
+        silent = true,
+      },
+    }
+  },
 
   -- Default Example LazyVim Plugins
   -- --------------------------------------------------------------------------
