@@ -8,7 +8,13 @@
 
 ## open terminal
 hyper - a : open /Applications/Arc.app
-hyper - s : alacritty msg create-window || open /Applications/Alacritty.app
+hyper - s : windows=$(yabai -m query --windows | jq '[.[] | select(.title=="Alacritty") | {id:.id, space:.space}]') && \
+            spaces=$(yabai -m query --spaces | jq '[.[] | select(."is-visible") | .index]') && \
+            current_space_index=$(jq --null-input "${spaces} - (${spaces} - ([${windows} | .[] | .space])) | .[0]") && \
+            alac_window_id=$(jq --null-input "${windows} | .[] | select(.space == ${current_space_index}) | .id") && \
+            [[ ! -z "$alac_window_id" ]] && yabai -m window $alac_window_id --focus || \
+                ((LABEL=$(uuidgen) && yabai -m signal --add event="window_created" label="$LABEL" app="^Alacritty$" action="yabai -m window \$YABAI_WINDOW_ID --focus && yabai -m signal --remove $LABEL") && alacritty msg create-window) || \
+                open /Applications/Alacritty.app
 hyper - d : open /Applications/Visual\ Studio\ Code.app
 hyper - f : open ~/Applications/ChatGPT.app
 hyper - g : open /Applications/Slack.app
