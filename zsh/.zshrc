@@ -1,5 +1,5 @@
 # Start tmux if not already running
-if [ -z "$TMUX" ]; then
+if [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
   tmux attach || tmux
 fi
 
