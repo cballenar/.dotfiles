@@ -26,5 +26,13 @@ vim.keymap.set("n", "<leader>i", "<cmd>silent !tmux neww tmux-cht<CR>", { desc =
 -- Search and Replace
 vim.keymap.set("n", "<leader>h", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace Current" })
 
+-- Use tab for indenting
+vim.keymap.set("n", "<Tab>", ">>")
+vim.keymap.set("n", "<S-Tab>", "<<")
+
+-- Use tab for indenting and keep selection after indenting
+vim.keymap.set("v", "<Tab>", ">><ESC>gv")
+vim.keymap.set("v", "<S-Tab>", "<<<ESC>gv")
+
 -- Make current file executable
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
