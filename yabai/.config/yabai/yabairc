@@ -1,24 +1,21 @@
-#!/usr/bin/env sh
-# YABAI STUFF
-# as seen in: https://www.youtube.com/watch?v=JL1lz77YbUE
-
+#!/usr/bin/env zsh
+# Initial Configuration
 # use managed bsp layout by default
-yabai -m config layout bsp
-
 # use stack for the last space (laptop, secondary screen)
+yabai -m config layout bsp
 yabai -m config --space last layout stack
 
-## Disable Yabai resizing
+# Disable management for common floating apps
+# we try to keep this list short to give the wms preference.
+# if well configured, most apps will work well managed
+# or can easily be unmanaged if truly needed.
 declare -a unmanaged_apps=(
-    "System Settings"
-    "System Information"
-    "Activity Monitor"
-    "Disk Utility"
-    "Finder"
-    "KeyCastr"
+	"System Settings"
+	"Finder"
+	"KeyCastr"
 )
 for app in "${unmanaged_apps[@]}"; do
-    yabai -m rule --add app="^$app$" manage=off
+	yabai -m rule --add app="^$app$" manage=off
 done
 
 # When focusing a window, put the mouse at its center.
@@ -28,9 +25,8 @@ yabai -m config mouse_follows_focus on
 #yabai -m config focus_follows_mouse autoraise
 
 ## Change how yabai looks
-yabai -m config top_padding 5
-yabai -m config bottom_padding 5
-yabai -m config left_padding 5
-yabai -m config right_padding 5
-yabai -m config window_gap 5
-
+yabai -m config top_padding 0
+yabai -m config bottom_padding 0
+yabai -m config left_padding 0
+yabai -m config right_padding 0
+yabai -m config window_gap 0
