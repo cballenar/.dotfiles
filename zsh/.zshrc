@@ -69,3 +69,6 @@ if [ -f '/Users/cballenar/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users
 
 # Docker Desktop
 source /Users/cballenar/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+# Lando
+export PATH="/Users/cballenar/.lando/bin${PATH+:$PATH}"; #landopath
