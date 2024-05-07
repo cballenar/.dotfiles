@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # set root directory where to fuzzyfind
-root_directory=/Users/cballenar/Repositories/
+root_directory=/Users/cballenar/Repositories
 escaped_root=$(echo "$root_directory" | sed 's/\//\\\//g')
 
 # if parameter is given just open new tmux session under that name
