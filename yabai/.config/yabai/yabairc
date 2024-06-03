@@ -19,6 +19,7 @@ declare -a unmanaged_apps=(
 	"System Settings"
 	"Finder"
 	"KeyCastr"
+    "Keka"
 )
 for app in "${unmanaged_apps[@]}"; do
 	yabai -m rule --add app="^$app$" manage=off
