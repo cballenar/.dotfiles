@@ -15,6 +15,7 @@ hyper - g : open /Applications/Slack.app
 hyper - t : open /Applications/Microsoft\ Outlook.app
 hyper - q : open /Applications/1Password\ 7.app
 hyper - w : open /Applications/Spotify.app
+hyper - e : open /Applications/Logseq.app
 
 ## focus window - matches vim/tmux motions
 hyper - h    : yabai -m window --focus west || yabai -m display --focus prev
