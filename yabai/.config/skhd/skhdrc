@@ -66,6 +66,7 @@ hyper - m : yabai -m space --rotate 90
 
 ## restart yabai
 hyper - z : yabai --restart-service
+hyper - x : skhd --restart-service
 
 
 #! SIP Disabled Features
