@@ -10,6 +10,7 @@
 	defaultBranch = main
 [core]
 	excludesfile = /Users/cballenar/.gitignore
+	editor = vi
 [pull]
 	rebase = false
 [push]
