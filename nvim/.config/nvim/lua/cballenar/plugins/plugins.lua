@@ -64,9 +64,6 @@ return {
     opts = { use_diagnostic_signs = true },
   },
 
-  -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
-
   -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
