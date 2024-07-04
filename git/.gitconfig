@@ -8,6 +8,8 @@
 	email = 687315+cballenar@users.noreply.github.com
 [init]
 	defaultBranch = main
+[alias]
+  undo = reset --soft HEAD^
 [core]
 	excludesfile = /Users/cballenar/.gitignore
 	editor = vi
