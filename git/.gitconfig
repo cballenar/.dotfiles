@@ -17,3 +17,7 @@
 	rebase = false
 [push]
 	autoSetupRemote = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
