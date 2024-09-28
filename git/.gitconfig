@@ -10,6 +10,7 @@
 	defaultBranch = main
 [alias]
   undo = reset --soft HEAD^
+	dog = log --all --decorate --oneline --graph
 [core]
 	excludesfile = /Users/cballenar/.gitignore
 	editor = vi
