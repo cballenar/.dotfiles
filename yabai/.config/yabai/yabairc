@@ -14,26 +14,34 @@ for app in "${unmanaged_apps[@]}"; do
 done
 
 # Initial Configuration
-# use managed bsp layout by default
-# use stack for the last space (laptop, secondary screen)
-yabai -m config layout bsp
-yabai -m config --space last layout stack
+NUM_DISPLAYS=$(yabai -m query --displays | jq '. | length')
 
-# if we remove a display, change to stack layout (assumes to be laptop only)
-yabai -m signal --add event="display_removed" action="yabai -m config layout stack"
-
-# if we add a display, change to our initial configuration
-yabai -m signal --add event="display_added" action="yabai -m config layout bsp && yabai -m config --space last layout stack"
+# depending on number of displays
+if [ "$NUM_DISPLAYS" -eq 1 ]; then
+    # use stack for all screens
+    yabai -m config layout stack
+    PAD=0
+else
+    # use managed bsp layout by default
+    # use stack for the last space (laptop, secondary screen)
+    yabai -m config layout bsp
+    yabai -m config --space last layout stack
+    PAD=6
+fi
 
 # When focusing a window, put the mouse at its center.
-yabai -m config mouse_follows_focus on
+# yabai -m config mouse_follows_focus on
 
 # Automatically focus the window under the mouse
 #yabai -m config focus_follows_mouse autoraise
 
 ## Change how yabai looks
-yabai -m config top_padding 0
-yabai -m config bottom_padding 0
-yabai -m config left_padding 0
-yabai -m config right_padding 0
-yabai -m config window_gap 0
+yabai -m config top_padding ${PAD}
+yabai -m config bottom_padding ${PAD}
+yabai -m config left_padding ${PAD}
+yabai -m config right_padding ${PAD}
+yabai -m config window_gap ${PAD}
+
+# restart service on display ad/remove
+yabai -m signal --add event="display_removed" action="yabai --restart-service"
+yabai -m signal --add event="display_added" action="yabai --restart-service"
