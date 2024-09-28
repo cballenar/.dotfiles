@@ -1,4 +1,18 @@
 #!/usr/bin/env zsh
+# Disable management for common floating apps we try to keep this list short
+# to give the wms preference. if well configured, most apps will work well
+# or can easily be unmanaged if truly needed. Keep at top to prevent shuffling
+# on restart.
+declare -a unmanaged_apps=(
+"System Settings"
+"Finder"
+"KeyCastr"
+"Keka"
+)
+for app in "${unmanaged_apps[@]}"; do
+    yabai -m rule --add app="^$app$" manage=off
+done
+
 # Initial Configuration
 # use managed bsp layout by default
 # use stack for the last space (laptop, secondary screen)
@@ -10,20 +24,6 @@ yabai -m signal --add event="display_removed" action="yabai -m config layout sta
 
 # if we add a display, change to our initial configuration
 yabai -m signal --add event="display_added" action="yabai -m config layout bsp && yabai -m config --space last layout stack"
-
-# Disable management for common floating apps
-# we try to keep this list short to give the wms preference.
-# if well configured, most apps will work well managed
-# or can easily be unmanaged if truly needed.
-declare -a unmanaged_apps=(
-	"System Settings"
-	"Finder"
-	"KeyCastr"
-    "Keka"
-)
-for app in "${unmanaged_apps[@]}"; do
-	yabai -m rule --add app="^$app$" manage=off
-done
 
 # When focusing a window, put the mouse at its center.
 yabai -m config mouse_follows_focus on
