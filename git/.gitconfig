@@ -22,3 +22,6 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
