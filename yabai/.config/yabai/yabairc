@@ -5,7 +5,7 @@
 # on restart.
 declare -a unmanaged_apps=(
 "System Settings"
-"Finder"
+#"Finder"
 "KeyCastr"
 "Keka"
 )
