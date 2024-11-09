@@ -16,11 +16,22 @@ done
 # Initial Configuration
 NUM_DISPLAYS=$(yabai -m query --displays | jq '. | length')
 
+# Get first display uuid
+DISPLAY_ID=$(yabai -m query --displays | jq '.[0].id')
+
 # depending on number of displays
-if [ "$NUM_DISPLAYS" -eq 1 ]; then
+if [ "$NUM_DISPLAYS" -eq 1 ] && [ "$DISPLAY_ID" -eq 1 ]; then
+    # if only available display is laptop's
     # use stack for all screens
     yabai -m config layout stack
     PAD=0
+elif [ "$NUM_DISPLAYS" -eq 1 ]; then
+    # else, assume it's a larger display and
+    # use managed bsp layout by default
+    # use stack for the first space
+    yabai -m config layout bsp
+    yabai -m config --space first layout stack
+    PAD=6
 else
     # use managed bsp layout by default
     # use stack for the last space (laptop, secondary screen)
