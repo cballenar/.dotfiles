@@ -69,12 +69,10 @@ The details below reflect the last version of the setup.
 
 ## Changelog
 
-These are Vial backup files of the keyboard configuration.
-
-- v1 - Initial configuration. Very close to the default Piantor setup.
-- v2 - Added a few more layers and macros, testing custom tap dance functions.
-- v3 - Reverts back to Mod-Tap due to better functioning and easier management. Rearranges keys and adds All Mod combos.
-- v4 - Changes to home row mods setup. Changes media to layer 3 and makes available to both hands. Cleans up old configuration.
-- v5 - Adds alternative keyboard layout (layer 10/11/12). Very experimental, barely used.
-- v6 - Moves numpad to layer 3, adds a gaming layout to layer 4, mirrors arrow keys on left side of keyboard (layer 1). Moves toggle keys. Copies some of the changes to experimental layers.
-- v7 - Moves gaming layer to 5/6 and changes modifier keys based on what I'm already used to. Adjusts other layer keys based on usage.
+- v1 (2023-12) - Initial configuration. Very close to the default Piantor setup.
+- v2 (2024-01) - Added a few more layers and macros, testing custom tap dance functions.
+- v3 (2024-03) - Reverts back to Mod-Tap due to better functioning and easier management. Rearranges keys and adds All Mod combos.
+- v4 (2024-04) - Changes to home row mods setup. Changes media to layer 3 and makes available to both hands. Cleans up old configuration.
+- v5 (2024-06) - Adds alternative keyboard layout (layer 10/11/12). Very experimental, barely used.
+- v6 (2024-08) - Moves numpad to layer 3, adds a gaming layout to layer 4, mirrors arrow keys on left side of keyboard (layer 1). Moves toggle keys. Copies some of the changes to experimental layers.
+- v7 (2024-12) - Moves gaming layer to 5/6 and changes modifier keys based on what I'm already used to. Adjusts other layer keys based on usage.
