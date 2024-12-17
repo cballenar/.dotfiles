@@ -54,11 +54,10 @@ The details below reflect the last version of the setup.
 - Only the right pad is used for this.
 - Left pad to still find a use. Media tool (drawing, video, audio) companion?
 
-### Layer 4: Gaming
+### Layer 5/6: Gaming
 
 - Removes Home Row Mods and places them in side and bottom keys.
-- Changes h, j, k, l to left, top, bottom, right.
-- This has only been tested with platformers.
+- Changes h, j, k, l to left, top, bottom, right. (Platformers)
 
 ### Layer 10/11/12: Alternative Layout
 
@@ -78,3 +77,4 @@ These are Vial backup files of the keyboard configuration.
 - v4 - Changes to home row mods setup. Changes media to layer 3 and makes available to both hands. Cleans up old configuration.
 - v5 - Adds alternative keyboard layout (layer 10/11/12). Very experimental, barely used.
 - v6 - Moves numpad to layer 3, adds a gaming layout to layer 4, mirrors arrow keys on left side of keyboard (layer 1). Moves toggle keys. Copies some of the changes to experimental layers.
+- v7 - Moves gaming layer to 5/6 and changes modifier keys based on what I'm already used to. Adjusts other layer keys based on usage.
