@@ -1,5 +1,12 @@
+# Exit if the terminal is 'dumb'.
+# This was specifically added for the shell in Raycast.
+# It speeds it up and prevents more advanced commands from getting in the way.
+if [ -z "$TERM" ] || [ "$TERM" = "dumb" ]; then
+  return
+fi
+
 # Start tmux if not already running
-if [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
+if [ "$TERM_PROGRAM" != "vscode" ] && [ -z "$TMUX" ]; then
   tmux attach || tmux
 fi
 
