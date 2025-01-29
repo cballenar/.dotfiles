@@ -67,11 +67,10 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/cballenar/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cballenar/google-cloud-sdk/path.zsh.inc'; fi
-
+if [ -f '/Users/cballenar/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cballenar/bin/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/cballenar/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cballenar/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/cballenar/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cballenar/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
 
 # Docker Desktop
@@ -79,3 +78,18 @@ source /Users/cballenar/.docker/init-zsh.sh || true # Added by Docker Desktop
 
 # Lando
 export PATH="/Users/cballenar/.lando/bin${PATH+:$PATH}"; #landopath
+
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/cballenar/.zsh/completions:"* ]]; then export FPATH="/Users/cballenar/.zsh/completions:$FPATH"; fi
+
+# bun completions
+[ -s "/Users/cballenar/.bun/_bun" ] && source "/Users/cballenar/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+. "/Users/cballenar/.deno/env"
+
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
