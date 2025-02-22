@@ -8,6 +8,7 @@ declare -a unmanaged_apps=(
 #"Finder"
 "KeyCastr"
 "Keka"
+"Raycast"
 )
 for app in "${unmanaged_apps[@]}"; do
     yabai -m rule --add app="^$app$" manage=off
