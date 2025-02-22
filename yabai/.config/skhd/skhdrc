@@ -36,8 +36,10 @@ hyper - u : yabai -m window --toggle float;\
             yabai -m window --grid 4:4:1:1:2:2
 
 ## toggle window fullscreen zoom, allowing other windows to take up available space
-hyper - i : yabai -m window --toggle float;\
-            yabai -m window --grid 4:4:0:0:4:4
+#hyper - i : yabai -m window --toggle float;\
+#            yabai -m window --grid 4:4:0:0:4:4
+## toggle the current space between bsp and stack layout
+hyper - i : yabai -m query --spaces --space | jq -r '.type' | grep -q "stack" && yabai -m space --layout bsp || yabai -m space --layout stack
 
 ## swap window
 #hyper - n    : yabai -m window --swap west
@@ -46,7 +48,7 @@ hyper - i : yabai -m window --toggle float;\
 #hyper - 0x2F : yabai -m window --swap east  # period
 
 ## rotate tree 90
-hyper - m : yabai -m space --rotate 90
+hyper - p : yabai -m space --rotate 90
 
 ## mirror tree y-axis
 # hyper - c : yabai -m space --mirror y-axis
