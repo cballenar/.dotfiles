@@ -4,11 +4,12 @@
 # or can easily be unmanaged if truly needed. Keep at top to prevent shuffling
 # on restart.
 declare -a unmanaged_apps=(
-"System Settings"
-#"Finder"
-"KeyCastr"
-"Keka"
-"Raycast"
+    "System Settings"
+    "Archive Utility"
+    #"Finder"
+    "KeyCastr"
+    "Keka"
+    "Raycast"
 )
 for app in "${unmanaged_apps[@]}"; do
     yabai -m rule --add app="^$app$" manage=off
@@ -42,7 +43,7 @@ else
 fi
 
 # When focusing a window, put the mouse at its center.
-# yabai -m config mouse_follows_focus on
+yabai -m config mouse_follows_focus on
 
 # Automatically focus the window under the mouse
 #yabai -m config focus_follows_mouse autoraise
