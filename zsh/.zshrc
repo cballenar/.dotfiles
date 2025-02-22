@@ -1,3 +1,7 @@
+# Global Aliases
+# These are meant to work even in dumb environments
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+
 # Exit if the terminal is 'dumb'.
 # This was specifically added for the shell in Raycast.
 # It speeds it up and prevents more advanced commands from getting in the way.
