@@ -70,6 +70,8 @@ cask "figma"
 cask "godot"
 # Google Drive for Desktop client
 cask "google-drive"
+# Web browser
+cask "google-chrome"
 # File archiver for macOS
 cask "keka"
 # Open-source keystroke visualiser
