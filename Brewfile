@@ -9,6 +9,8 @@ tap "koekeishiya/formulae"
 brew "bat"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
+# Disk usage analyzer with a tree view
+brew "dutree"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GitHub command-line tool
@@ -21,6 +23,8 @@ brew "gnu-sed"
 brew "gnupg"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Disk usage analyzer with an ncurses interface
+brew "ncdu"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Readline wrapper: adds readline support to tools that lack it
@@ -50,6 +54,8 @@ brew "koekeishiya/formulae/yabai"
 cask "1password"
 # Prevents Mac from going to sleep
 cask "amphetamine"
+# Client for Blizzard Entertainment games
+cask "battle-net"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # An AI-first code editor
@@ -60,6 +66,8 @@ cask "discord"
 cask "elgato-wave-link"
 # The collaborative interface design tool
 cask "figma"
+# Multi-platform 2D and 3D game engine
+cask "godot"
 # Google Drive for Desktop client
 cask "google-drive"
 # File archiver for macOS
@@ -74,6 +82,8 @@ cask "notunes"
 cask "obs"
 # A powerful knowledge base that works on local Markdown files
 cask "obsidian"
+# Run LLaMA, Mistral, and other large language models locally
+cask "ollama"
 # macOS launcher and automation tool
 cask "raycast"
 # Communication platform for teams
@@ -82,10 +92,18 @@ cask "slack"
 cask "skim"
 # Music streaming service client
 cask "spotify"
+# Digital distribution platform for video games
+cask "steam"
+# Cross-platform GUI for QMK keyboards
+cask "vial"
 # Code editor by Microsoft
 cask "visual-studio-code"
+# Free and open source multimedia player
+cask "vlc"
 # Virtualization software for macOS
 cask "vmware-fusion"
+# All-in-one desktop app for WhatsApp
+cask "whatsapp"
 # Video conferencing and meeting solution
 cask "zoom"
 
