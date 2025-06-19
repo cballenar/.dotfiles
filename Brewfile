@@ -1,7 +1,10 @@
 tap "ddev/ddev"
 tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
+
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Secure runtime for JavaScript and TypeScript
@@ -42,14 +45,49 @@ brew "ddev/ddev/ddev"
 brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai"
+
+# Password manager and secure digital vault
+cask "1password"
+# Prevents Mac from going to sleep
+cask "amphetamine"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
+# An AI-first code editor
+cask "cursor"
+# All-in-one voice and text chat for gamers
+cask "discord"
+# Audio mixing software for Elgato Wave microphones
+cask "elgato-wave-link"
+# The collaborative interface design tool
+cask "figma"
+# Google Drive for Desktop client
+cask "google-drive"
+# File archiver for macOS
+cask "keka"
 # Open-source keystroke visualiser
 cask "keycastr"
+# A local-first knowledge base
+cask "logseq"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
+# Open Broadcaster Software for streaming and recording
+cask "obs"
+# A powerful knowledge base that works on local Markdown files
+cask "obsidian"
+# macOS launcher and automation tool
+cask "raycast"
+# Communication platform for teams
+cask "slack"
 # PDF reader and note-taking application
 cask "skim"
+# Music streaming service client
+cask "spotify"
+# Code editor by Microsoft
+cask "visual-studio-code"
+# Virtualization software for macOS
+cask "vmware-fusion"
+# Video conferencing and meeting solution
+cask "zoom"
 
 vscode "aaron-bond.better-comments"
 vscode "adpyke.codesnap"
