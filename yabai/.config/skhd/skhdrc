@@ -7,8 +7,8 @@
 # hyper - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
 ## open terminal
-hyper - a : open /Applications/Arc.app
-hyper - s : ~/.local/bin/alacritty-launcher
+hyper - a : open /Applications/Google\ Chrome.app
+hyper - s : open /System/Applications/Utilities/Terminal.app
 hyper - d : open /Applications/Visual\ Studio\ Code.app
 hyper - f : open ~/Applications/ChatGPT.app
 hyper - g : open /Applications/Slack.app
@@ -42,8 +42,8 @@ hyper - u : yabai -m window --toggle float;\
 hyper - i : yabai -m query --spaces --space | jq -r '.type' | grep -q "stack" && yabai -m space --layout bsp || yabai -m space --layout stack
 
 ## swap window
-#hyper - n    : yabai -m window --swap west
-#hyper - m    : yabai -m window --swap south
+hyper - n    : yabai -m window --swap west
+hyper - m    : yabai -m window --swap south
 #hyper - 0x2B : yabai -m window --swap north # comma
 #hyper - 0x2F : yabai -m window --swap east  # period
 

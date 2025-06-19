@@ -22,6 +22,6 @@
 	ui = auto
 [branch]
 	sort = -committerdate
-[credential]
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
+[maintenance]
+	repo = /Users/cballenar/Repositories/jhsph/jhsph
+	repo = /Users/cballenar/Repositories/un/undiario.pe
