@@ -1,8 +1,4 @@
 tap "ddev/ddev"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
 tap "koekeishiya/formulae"
 
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -52,8 +48,6 @@ brew "koekeishiya/formulae/yabai"
 
 # Password manager and secure digital vault
 cask "1password"
-# Prevents Mac from going to sleep
-cask "amphetamine"
 # Client for Blizzard Entertainment games
 cask "battle-net"
 # Open source IDE for exploring and testing APIs
@@ -62,6 +56,8 @@ cask "bruno"
 cask "cursor"
 # All-in-one voice and text chat for gamers
 cask "discord"
+# Cross-platform desktop application for managing Docker containers
+cask "docker"
 # Audio mixing software for Elgato Wave microphones
 cask "elgato-wave-link"
 # The collaborative interface design tool
@@ -103,6 +99,7 @@ cask "visual-studio-code"
 # Free and open source multimedia player
 cask "vlc"
 # Virtualization software for macOS
+# Unfortunately this had issues with the authentication required to download the files. Manual installation may be required.
 cask "vmware-fusion"
 # All-in-one desktop app for WhatsApp
 cask "whatsapp"
@@ -179,3 +176,7 @@ vscode "whatwedo.twig"
 vscode "wix.vscode-import-cost"
 vscode "xdebug.php-debug"
 vscode "zobo.php-intellisense"
+
+# Install from App Store
+# [Amphetamine](https://apps.apple.com/es/app/amphetamine/id937984704)
+# [DaisyDisk](https://apps.apple.com/us/app/daisydisk/id411643860)
