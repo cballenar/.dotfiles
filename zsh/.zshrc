@@ -53,7 +53,7 @@ HISTFILESIZE=99999
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git gh thefuck fzf zsh-bat tmux zsh-autosuggestions zsh-syntax-highlighting you-should-use)
+plugins=(git gh thefuck fzf tmux zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 
 export ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
 source $ZSH/oh-my-zsh.sh
@@ -69,19 +69,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/cballenar/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cballenar/bin/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/cballenar/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cballenar/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
-
-# Docker Desktop
-source /Users/cballenar/.docker/init-zsh.sh || true # Added by Docker Desktop
+# If using Docker Desktop CLI
+[ -f "$HOME/.docker/init-zsh.sh" ] && source "$HOME/.docker/init-zsh.sh"
 
 # Lando
-export PATH="/Users/cballenar/.lando/bin${PATH+:$PATH}"; #landopath
+[ -d "$HOME/.lando/bin" ] && export PATH="$HOME/.lando/bin${PATH+:$PATH}"; #landopath
 
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/Users/cballenar/.zsh/completions:"* ]]; then export FPATH="/Users/cballenar/.zsh/completions:$FPATH"; fi
@@ -90,9 +88,13 @@ if [[ ":$FPATH:" != *":/Users/cballenar/.zsh/completions:"* ]]; then export FPAT
 [ -s "/Users/cballenar/.bun/_bun" ] && source "/Users/cballenar/.bun/_bun"
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-. "/Users/cballenar/.deno/env"
+if [ -d "$HOME/.bun/bin" ]; then
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+fi
+
+# Deno
+[ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit

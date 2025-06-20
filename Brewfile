@@ -62,6 +62,8 @@ cask "docker"
 cask "elgato-wave-link"
 # The collaborative interface design tool
 cask "figma"
+# Font with programming ligatures and glyphs
+cask "font-fira-code-nerd-font"
 # Multi-platform 2D and 3D game engine
 cask "godot"
 # Google Drive for Desktop client

@@ -7,6 +7,7 @@
     2. Install [Homebrew](https://brew.sh/)
     3. Install all homebrew packages
     4. Setup dotfiles
+3. Run through any remaining manual configurations
 
 ## Setup
 
