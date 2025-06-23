@@ -75,9 +75,6 @@ if [ -f '/Users/cballenar/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/c
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/cballenar/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cballenar/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
-# If using Docker Desktop CLI
-[ -f "$HOME/.docker/init-zsh.sh" ] && source "$HOME/.docker/init-zsh.sh"
-
 # Lando
 [ -d "$HOME/.lando/bin" ] && export PATH="$HOME/.lando/bin${PATH+:$PATH}"; #landopath
 
