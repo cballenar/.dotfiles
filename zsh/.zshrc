@@ -99,3 +99,17 @@ fi
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
+
+# DDEV Docker Check
+# This function checks if Docker is running before executing a `ddev` command.
+# If Docker is not running, it attempts to start Docker and waits for it to be ready.
+if command -v ddev >/dev/null 2>&1; then
+  function ddev() {
+    if ! docker info >/dev/null 2>&1; then
+      echo "Docker is not running. Starting Docker..."
+      open -a Docker
+      sleep 5 
+    fi
+    command ddev "$@"
+  }
+fi
