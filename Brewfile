@@ -76,6 +76,8 @@ cask "keka"
 cask "keycastr"
 # A local-first knowledge base
 cask "logseq"
+# Manages and monitores system resources. Req by Mac Mini.
+cask "monitorcontrol"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
 # Open Broadcaster Software for streaming and recording

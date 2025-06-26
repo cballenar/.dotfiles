@@ -12,7 +12,7 @@
   undo = reset --soft HEAD^
 	dog = log --all --decorate --oneline --graph
 [core]
-	excludesfile = /Users/cballenar/.gitignore
+	excludesFile = /Users/cballenar/.gitignore
 	editor = vi
 [pull]
 	rebase = false
