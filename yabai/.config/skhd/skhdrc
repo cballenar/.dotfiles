@@ -42,14 +42,11 @@ hyper - u : yabai -m window --toggle float;\
 ## toggle the current space between bsp and stack layout
 hyper - p : yabai -m query --spaces --space | jq -r '.type' | grep -q "stack" && yabai -m space --layout bsp || yabai -m space --layout stack
 
-## swap window
-hyper - n    : yabai -m window --swap west
-hyper - m    : yabai -m window --swap south
-#hyper - 0x2B : yabai -m window --swap north # comma
-#hyper - 0x2F : yabai -m window --swap east  # period
+## swap windows (until it works...)
+hyper - m    : yabai -m window --swap west || yabai -m window --swap east || yabai -m window --swap north || yabai -m window --swap south
 
 ## rotate tree 90
-hyper - p : yabai -m space --rotate 90
+hyper - n : yabai -m space --rotate 90
 
 ## mirror tree y-axis
 # hyper - c : yabai -m space --mirror y-axis
