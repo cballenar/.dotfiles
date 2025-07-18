@@ -17,6 +17,8 @@ brew "git-lfs"
 brew "gnu-sed"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# An ultra-light MacOS utility that helps hide menu bar icons
+brew "hiddenbar"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Disk usage analyzer with an ncurses interface
