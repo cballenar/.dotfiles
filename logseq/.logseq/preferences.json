@@ -1,7 +1,7 @@
 {
   "theme": null,
   "themes": {
-    "mode": "light",
+    "mode": "dark",
     "light": {
       "name": "Default Light Theme",
       "url": null,
@@ -12,13 +12,11 @@
       "group-desc": "light themes"
     },
     "dark": {
-      "name": "Default Dark Theme",
-      "url": null,
-      "description": "Logseq default dark theme.",
+      "name": "Dracula theme",
+      "url": "file:///Users/cballenar/.logseq/plugins/logseq-dracula-theme/custom.css",
+      "description": "🧛 Dark theme for Logseq.",
       "mode": "dark",
-      "selected": true,
-      "group-first": true,
-      "group-desc": "dark themes"
+      "pid": "logseq-dracula-theme"
     }
   },
   "externals": []
