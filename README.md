@@ -8,6 +8,7 @@
     3. Install all homebrew packages
     4. Setup dotfiles
 3. Run through any remaining manual configurations
+    - Setup Automator Quick Actions (scripts in `bin/.local/bin/`)
 
 ## Setup
 

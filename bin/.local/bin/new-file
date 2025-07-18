@@ -1,0 +1,81 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Function to display help
+show_help() {
+    cat << EOF
+USAGE
+  new-file <file_or_directory> [<file_or_directory>...]
+  
+ARGUMENTS
+  file_or_directory    One or more paths to target directories or files whose parent will be used
+
+DESCRIPTION
+  Creates a new empty file with automatic naming (untitled file.txt, untitled file (1).txt, etc.)
+  to avoid filename conflicts. Processes multiple selections simultaneously.
+
+AUTOMATOR SETUP
+  1. Create a new Quick Action in Automator.
+  2. Set it to receive "files or folders" in any application.
+  3. Optionally set an icon (e.g., "Add").
+  4. Add a "Run Shell Script" action.
+  5. Set "Pass input" to "as arguments".
+  6. Paste this script.
+  7. Save as "New File".
+
+OPTIONS
+  -h, --help    Show this help message and exit
+
+EXAMPLES
+  new-file /sample-sibling-file.txt
+  new-file directory-1/ directory-2/ directory-3/
+EOF
+}
+
+# Validate arguments
+if [ $# -eq 0 ]; then
+    echo "Error: No file or directory provided" >&2
+    echo "Use -h or --help for usage information" >&2
+    exit 1
+fi
+
+# Handle help flag
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    show_help
+    exit 0
+fi
+
+# Process each argument
+for arg in "$@"; do
+    # Get the target directory for this item
+    TARGET_DIR=""
+    if [ -d "$arg" ]; then
+        TARGET_DIR="$arg"
+    elif [ -f "$arg" ]; then
+        TARGET_DIR="$(dirname "$arg")"
+    else
+        echo "Warning: Skipping invalid path: $arg" >&2
+        continue
+    fi
+
+    # Skip if no valid target directory was determined
+    if [ -z "$TARGET_DIR" ]; then
+        continue
+    fi
+
+    BASE_FILENAME="untitled file"
+    EXTENSION="txt"
+    FILENAME="${BASE_FILENAME}.${EXTENSION}"
+    COUNTER=0
+
+    # Loop to find an available filename (e.g., "untitled file (1).txt")
+    while [ -f "${TARGET_DIR}/${FILENAME}" ]; do
+        COUNTER=$((COUNTER + 1))
+        FILENAME="${BASE_FILENAME} (${COUNTER}).${EXTENSION}"
+    done
+
+    # Create the empty file
+    touch "${TARGET_DIR}/${FILENAME}"
+    echo "Created: ${TARGET_DIR}/${FILENAME}"
+done
