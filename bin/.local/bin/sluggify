@@ -62,9 +62,6 @@ sluggify_name() {
     # Replace multiple consecutive hyphens with single hyphen
     name=$(echo "$name" | sed 's/-\{2,\}/-/g')
     
-    # Remove leading and trailing hyphens
-    name=$(echo "$name" | sed 's/^-\+\|-\+$//g')
-    
     # Remove leading and trailing dots (but preserve extensions)
     name=$(echo "$name" | sed 's/^\.\+//g')
     
@@ -73,10 +70,15 @@ sluggify_name() {
     if [[ "$name" == *.* ]]; then
         local basename="${name%.*}"
         local extension="${name##*.}"
+        # Clean up the basename
         basename=$(echo "$basename" | sed 's/\.\{2,\}/./g' | sed 's/\.$//g')
+        # Remove leading and trailing hyphens from basename (before extension)
+        basename=$(echo "$basename" | sed 's/^-*//; s/-*$//')
         name="${basename}.${extension}"
     else
         name=$(echo "$name" | sed 's/\.\{2,\}/./g' | sed 's/\.$//g')
+        # Remove leading and trailing hyphens for files without extensions
+        name=$(echo "$name" | sed 's/^-*//; s/-*$//')
     fi
     
     echo "$name"
