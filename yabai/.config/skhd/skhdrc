@@ -31,15 +31,16 @@ hyper - 0x24 : yabai -m window --focus recent # enter
 hyper - o : yabai -m window --resize right:213:0 || yabai -m window --resize left:213:0
 hyper - y : yabai -m window --resize left:-213:0 || yabai -m window --resize right:-213:0
 
-## float / unfloat window and center on screen
+## toggle window maximized
+hyper - i : yabai -m window --toggle float;\
+            yabai -m window --grid 4:4:0:0:4:4
+
+## toggle window to center on screen
 hyper - u : yabai -m window --toggle float;\
             yabai -m window --grid 4:4:1:1:2:2
 
-## toggle window fullscreen zoom, allowing other windows to take up available space
-#hyper - i : yabai -m window --toggle float;\
-#            yabai -m window --grid 4:4:0:0:4:4
 ## toggle the current space between bsp and stack layout
-hyper - i : yabai -m query --spaces --space | jq -r '.type' | grep -q "stack" && yabai -m space --layout bsp || yabai -m space --layout stack
+hyper - p : yabai -m query --spaces --space | jq -r '.type' | grep -q "stack" && yabai -m space --layout bsp || yabai -m space --layout stack
 
 ## swap window
 hyper - n    : yabai -m window --swap west
