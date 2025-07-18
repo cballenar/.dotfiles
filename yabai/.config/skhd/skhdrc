@@ -15,8 +15,8 @@ hyper - g : open /Applications/Slack.app
 hyper - t : open /Applications/Microsoft\ Outlook.app
 hyper - q : open /System/Applications/Passwords.app
 hyper - w : open /Applications/Spotify.app
-hyper - e : open /Applications/Logseq.app
-hyper - r : open ~/
+hyper - e : open ~/
+hyper - r : open /Applications/Logseq.app
 
 ## focus window - matches vim/tmux motions
 ## This assumes the primary display is on the right.
