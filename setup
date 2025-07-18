@@ -12,3 +12,6 @@ brew bundle install
 
 # Setup zsh
 ./zsh/setup-zsh
+
+# Add macOS defaults
+./setup-macos-defaults

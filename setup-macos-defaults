@@ -1,0 +1,5 @@
+# Enable Drag on gesture, ctrl+cmd+click
+defaults write -g NSWindowShouldDragOnGesture -bool true
+
+# Disable nudge/animation for drag on gesture
+defaults write -g NSWindowShouldDragOnGestureFeedback -bool false
