@@ -21,29 +21,34 @@ NUM_DISPLAYS=$(yabai -m query --displays | jq '. | length')
 # Get first display uuid
 DISPLAY_ID=$(yabai -m query --displays | jq '.[0].id')
 
+# Desktop Large Single Monitor
+yabai -m config layout bsp
+PAD=6
+
+# Laptop + 2nd Large Monitor Configuration
 # depending on number of displays
-if [ "$NUM_DISPLAYS" -eq 1 ] && [ "$DISPLAY_ID" -eq 1 ]; then
-    # if only available display is laptop's
-    # use stack for all screens
-    yabai -m config layout stack
-    PAD=0
-elif [ "$NUM_DISPLAYS" -eq 1 ]; then
-    # else, assume it's a larger display and
-    # use managed bsp layout by default
-    # use stack for the first space
-    yabai -m config layout bsp
-    yabai -m config --space first layout stack
-    PAD=6
-else
-    # use managed bsp layout by default
-    # use stack for the last space (laptop, secondary screen)
-    yabai -m config layout bsp
-    yabai -m config --space last layout stack
-    PAD=6
-fi
+#if [ "$NUM_DISPLAYS" -eq 1 ] && [ "$DISPLAY_ID" -eq 1 ]; then
+#    # if only available display is laptop's
+#    # use stack for all screens
+#    yabai -m config layout stack
+#    PAD=0
+#elif [ "$NUM_DISPLAYS" -eq 1 ]; then
+#    # else, assume it's a larger display and
+#    # use managed bsp layout by default
+#    # use stack for the first space
+#    yabai -m config layout bsp
+#    yabai -m config --space first layout stack
+#    PAD=6
+#else
+#    # use managed bsp layout by default
+#    # use stack for the last space (laptop, secondary screen)
+#    yabai -m config layout bsp
+#    yabai -m config --space last layout stack
+#    PAD=6
+#fi
 
 # When focusing a window, put the mouse at its center.
-yabai -m config mouse_follows_focus on
+#yabai -m config mouse_follows_focus on
 
 # Automatically focus the window under the mouse
 #yabai -m config focus_follows_mouse autoraise
