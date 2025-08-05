@@ -1,0 +1,79 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Function to display help
+show_help() {
+    cat << EOF
+USAGE
+  copypath <file_or_directory> [<file_or_directory>...]
+  
+ARGUMENTS
+  file_or_directory    One or more paths to files or directories to copy
+
+DESCRIPTION
+  Copies the absolute path(s) of the specified file(s) or directory(ies) to the clipboard.
+  If multiple items are provided, they are copied as a line-break separated list.
+
+AUTOMATOR SETUP
+  1. Create a new Quick Action in Automator.
+  2. Set it to receive "files or folders" in any application.
+  3. Optionally set an icon (e.g., "Path").
+  4. Add a "Run Shell Script" action.
+  5. Set "Pass input" to "as arguments".
+  6. Paste this script.
+  7. Save as "Copy Path".
+
+OPTIONS
+  -h, --help    Show this help message and exit
+
+EXAMPLES
+  copypath "My Document.pdf"              → copies absolute path to clipboard
+  copypath file1.txt dir1 "Bad Name.doc"  → copies all paths as line-separated list
+EOF
+}
+
+# Validate arguments
+if [ $# -eq 0 ]; then
+    echo "Error: No file or directory provided" >&2
+    echo "Use -h or --help for usage information" >&2
+    exit 1
+fi
+
+# Handle help flag
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    show_help
+    exit 0
+fi
+
+# Array to store all valid paths
+PATHS=()
+
+# Process each file/folder passed as an argument
+for TARGET_PATH in "$@"; do
+    # Skip if path doesn't exist
+    if [ ! -e "$TARGET_PATH" ]; then
+        echo "Error: Path does not exist: $TARGET_PATH" >&2
+        continue
+    fi
+
+    # Get the absolute path
+    ABSOLUTE_PATH=$(realpath "$TARGET_PATH")
+    PATHS+=("$ABSOLUTE_PATH")
+    echo "Added: $ABSOLUTE_PATH"
+done
+
+# Check if we have any valid paths
+if [ ${#PATHS[@]} -eq 0 ]; then
+    echo "Error: No valid paths found" >&2
+    exit 1
+fi
+
+# Join paths with newlines and copy to clipboard
+if [ ${#PATHS[@]} -eq 1 ]; then
+    echo "${PATHS[0]}" | pbcopy
+    echo "Copied path to clipboard: ${PATHS[0]}"
+else
+    printf '%s\n' "${PATHS[@]}" | pbcopy
+    echo "Copied ${#PATHS[@]} paths to clipboard"
+fi
