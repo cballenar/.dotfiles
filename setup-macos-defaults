@@ -3,3 +3,11 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 
 # Disable nudge/animation for drag on gesture
 defaults write -g NSWindowShouldDragOnGestureFeedback -bool false
+
+# MobileSync Backups Symlink to External Drive
+# By default, macOS doesn't allow you change the location of the backups created for mobile devices, i.e., /Users/<user>/Library/Application Support/MobileSync/Backup
+# To resolve this, a symlink is created. Warning: not tested with "moved" backups.
+# Disabled by default, run manually if needed.
+#### mkdir /Volumes/SSD1/Backups/MobileSync/Backup
+#### rm -rf ~/Library/Application\ Support/MobileSync/Backup
+#### ln -s "/Volumes/SSD1/Backups/MobileSync/Backup" ~/Library/Application\ Support/MobileSync/
