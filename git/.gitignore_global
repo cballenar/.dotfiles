@@ -1,0 +1,5 @@
+.DS_Store
+
+# Ignore VSCode settings by default to respect other users' preferences.
+# Force stage settings if you want to share them.
+.vscode/settings.json
