@@ -1,14 +1,89 @@
+echo "🔧 Installing Defaults..."
 # Enable Drag on gesture, ctrl+cmd+click
 defaults write -g NSWindowShouldDragOnGesture -bool true
-
 # Disable nudge/animation for drag on gesture
 defaults write -g NSWindowShouldDragOnGestureFeedback -bool false
+
+# Dock
+# Disable Autohide
+defaults write com.apple.dock autohide -bool true
+# Disable Launch Animation
+defaults write com.apple.dock launchanim -bool false
+# Disable suggested/recent apps
+defaults write com.apple.dock show-recents -bool false
+# No rearranging spaces
+defaults write com.apple.dock mru-spaces -bool false
+# Set Dock size
+defaults write com.apple.dock "tilesize" -int "60"
+
+# Finder
+# No items on Desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+# Hide Tags
+defaults write com.apple.finder ShowRecentTags -bool false
+# New window to home path
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+# Keep folders on top
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
+# Default to search current folder
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Global Settings
+# Enable Auto Light/Dark Mode
+defaults write AppleInterfaceStyleSwitchesAutomatically -bool true
+# Show all file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# Enable mouse swipe navigation
+defaults write NSGlobalDomain AppleEnableMouseSwipeNavigateWithScrolls -bool true
+# Set mouse/trackpad scaling/sensitivity
+defaults write NSGlobalDomain com.apple.mouse.scaling -int 3
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 1.5
+# Switch to Space when clicking app in Dock
+defaults write NSGlobalDomain AppleSpacesSwitchOnActivate -bool true
+# Use function keys. Preferred due to custom keyboard.
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+# Disable all keyboard auto/corrections
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticInlinePredictionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Keyboard Shortcuts
+# Enable Ctrl+1-5 for direct desktop switching
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 118 '{enabled = 1; value = {parameters = (65535, 18, 262144); type = standard;};}'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 119 '{enabled = 1; value = {parameters = (65535, 19, 262144); type = standard;};}'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 120 '{enabled = 1; value = {parameters = (65535, 20, 262144); type = standard;};}'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 121 '{enabled = 1; value = {parameters = (65535, 21, 262144); type = standard;};}'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 122 '{enabled = 1; value = {parameters = (65535, 23, 262144); type = standard;};}'
+# Disable Spotlight shortcuts (in preference of Raycast)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 '{enabled = 0;}'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 61 '{enabled = 0;}'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 '{enabled = 0;}'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 '{enabled = 0;}'
+
+# Screen Saver: 10m
+defaults -currentHost write com.apple.screensaver idleTime -int 600
+# Off Display: 20m (pmset controls hardware power management, not app preferences)
+sudo pmset -a displaysleep 20
+# Manually set require password after sleep to 5 seconds
+
+# Restart Dock and Finder to apply changes
+killall Dock
+killall Finder
 
 echo "🔧 Installing Automator workflows..."
 mkdir -p "$HOME/Library/Services"
 cp -R automator/*.workflow "$HOME/Library/Services/"
 echo "✅ Workflows installed and available in right-click context menu"
 
+echo "💡 Remember to symlink the mobile backup directory manually if needed."
 # MobileSync Backups Symlink to External Drive
 # By default, macOS doesn't allow you change the location of the backups created for mobile devices, i.e., /Users/<user>/Library/Application Support/MobileSync/Backup
 # To resolve this, a symlink is created. Warning: not tested with "moved" backups.
