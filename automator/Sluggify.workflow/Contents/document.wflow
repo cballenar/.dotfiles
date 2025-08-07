@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>528</string>
+	<key>AMApplicationVersion</key>
+	<string>2.10</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.0.3</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<dict/>
+					<key>CheckedForUserDefaultShell</key>
+					<dict/>
+					<key>inputMethod</key>
+					<dict/>
+					<key>shell</key>
+					<dict/>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Run Shell Script</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string>#!/bin/bash
+
+set -euo pipefail
+
+# Function to display help
+show_help() {
+    cat &lt;&lt; EOF
+USAGE
+  sluggify &lt;file_or_directory&gt; [&lt;file_or_directory&gt;...]
+  
+ARGUMENTS
+  file_or_directory    One or more paths to files or directories to rename
+
+DESCRIPTION
+  Converts filenames and directory names to URL-friendly slugs by converting to lowercase,
+  replacing spaces with hyphens, removing special characters, and handling multiple
+  consecutive separators. Preserves file extensions.
+
+TRANSFORMATIONS
+  - Convert to lowercase
+  - Replace spaces and underscores with hyphens
+  - Remove special characters (keep alphanumeric, hyphens, dots)
+  - Collapse multiple consecutive hyphens
+  - Remove leading/trailing hyphens and dots
+  - Preserve file extensions
+
+AUTOMATOR SETUP
+  1. Create a new Quick Action in Automator.
+  2. Set it to receive "files or folders" in any application.
+  3. Optionally set an icon (e.g., "Compose").
+  4. Add a "Run Shell Script" action.
+  5. Set "Pass input" to "as arguments".
+  6. Paste this script.
+  7. Save as "Sluggify".
+
+OPTIONS
+  -h, --help    Show this help message and exit
+
+EXAMPLES
+  sluggify "My Document.pdf"              → my-document.pdf
+  sluggify "Project Files &amp; Notes"        → project-files-notes
+  sluggify file1.txt "Bad File Name.doc"  → renames both files
+EOF
+}
+
+# Function to sluggify a filename
+sluggify_name() {
+    local name="$1"
+    
+    # Convert to lowercase
+    name=$(echo "$name" | tr '[:upper:]' '[:lower:]')
+    
+    # Replace spaces with hyphens
+    name=$(echo "$name" | sed 's/ /-/g')
+    
+    # Replace underscores with hyphens (optional - you can remove this line if you want to keep underscores)
+    name=$(echo "$name" | sed 's/_/-/g')
+    
+    # Remove or replace special characters, keeping only alphanumeric, hyphens, and dots
+    name=$(echo "$name" | sed 's/[^a-z0-9.-]/-/g')
+    
+    # Replace multiple consecutive hyphens with single hyphen
+    name=$(echo "$name" | sed 's/-\{2,\}/-/g')
+    
+    # Remove leading and trailing dots (but preserve extensions)
+    name=$(echo "$name" | sed 's/^\.\+//g')
+    
+    # Handle multiple consecutive dots (except for extensions)
+    # This preserves the last dot for file extension
+    if [[ "$name" == *.* ]]; then
+        local basename="${name%.*}"
+        local extension="${name##*.}"
+        # Clean up the basename
+        basename=$(echo "$basename" | sed 's/\.\{2,\}/./g' | sed 's/\.$//g')
+        # Remove leading and trailing hyphens from basename (before extension)
+        basename=$(echo "$basename" | sed 's/^-*//; s/-*$//')
+        name="${basename}.${extension}"
+    else
+        name=$(echo "$name" | sed 's/\.\{2,\}/./g' | sed 's/\.$//g')
+        # Remove leading and trailing hyphens for files without extensions
+        name=$(echo "$name" | sed 's/^-*//; s/-*$//')
+    fi
+    
+    echo "$name"
+}
+
+# Validate arguments
+if [ $# -eq 0 ]; then
+    echo "Error: No file or directory provided" &gt;&amp;2
+    echo "Use -h or --help for usage information" &gt;&amp;2
+    exit 1
+fi
+
+# Handle help flag
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    show_help
+    exit 0
+fi
+
+# Process each file/folder passed as an argument
+for TARGET_PATH in "$@"; do
+    # Skip if path doesn't exist
+    if [ ! -e "$TARGET_PATH" ]; then
+        echo "Error: Path does not exist: $TARGET_PATH"
+        continue
+    fi
+
+    # Get the directory and current name
+    PARENT_DIR="$(dirname "$TARGET_PATH")"
+    CURRENT_NAME="$(basename "$TARGET_PATH")"
+
+    # Sluggify the name
+    NEW_NAME=$(sluggify_name "$CURRENT_NAME")
+
+    # If the name hasn't changed, skip
+    if [ "$CURRENT_NAME" = "$NEW_NAME" ]; then
+        echo "No changes needed: $CURRENT_NAME"
+        continue
+    fi
+
+    # Check if a file/folder with the new name already exists
+    NEW_PATH="${PARENT_DIR}/${NEW_NAME}"
+    if [ -e "$NEW_PATH" ]; then
+        echo "Error: A file or folder with the name '$NEW_NAME' already exists"
+        continue
+    fi
+
+    # Rename the file/folder
+    mv "$TARGET_PATH" "$NEW_PATH"
+
+    if [ $? -eq 0 ]; then
+        echo "Renamed: $CURRENT_NAME → $NEW_NAME"
+    else
+        echo "Error: Failed to rename $CURRENT_NAME"
+    fi
+done
+</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/bin/bash</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CFBundleVersion</key>
+				<string>2.0.3</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunShellScriptAction</string>
+				<key>InputUUID</key>
+				<string>41908EB3-E9FA-4990-A9A1-5043E656FFE2</string>
+				<key>Keywords</key>
+				<array>
+					<string>Shell</string>
+					<string>Script</string>
+					<string>Command</string>
+					<string>Run</string>
+					<string>Unix</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>A44E89A5-8F2B-4C06-99D4-4AF2F3BE1B0C</string>
+				<key>UUID</key>
+				<string>D341D516-3A74-447D-8AF0-23C08009C192</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>inputMethod</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<integer>1</integer>
+				<key>location</key>
+				<string>383.500000:305.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>applicationBundleIDsByPath</key>
+		<dict/>
+		<key>applicationPaths</key>
+		<array/>
+		<key>inputTypeIdentifier</key>
+		<string>com.apple.Automator.fileSystemObject</string>
+		<key>outputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>presentationMode</key>
+		<integer>15</integer>
+		<key>processesInput</key>
+		<false/>
+		<key>serviceInputTypeIdentifier</key>
+		<string>com.apple.Automator.fileSystemObject</string>
+		<key>serviceOutputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceProcessesInput</key>
+		<false/>
+		<key>systemImageName</key>
+		<string>NSTouchBarCompose</string>
+		<key>useAutomaticInputType</key>
+		<false/>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.servicesMenu</string>
+	</dict>
+</dict>
+</plist>

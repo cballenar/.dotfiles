@@ -4,6 +4,11 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 # Disable nudge/animation for drag on gesture
 defaults write -g NSWindowShouldDragOnGestureFeedback -bool false
 
+echo "🔧 Installing Automator workflows..."
+mkdir -p "$HOME/Library/Services"
+cp -R automator/*.workflow "$HOME/Library/Services/"
+echo "✅ Workflows installed and available in right-click context menu"
+
 # MobileSync Backups Symlink to External Drive
 # By default, macOS doesn't allow you change the location of the backups created for mobile devices, i.e., /Users/<user>/Library/Application Support/MobileSync/Backup
 # To resolve this, a symlink is created. Warning: not tested with "moved" backups.
