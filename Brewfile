@@ -76,6 +76,9 @@ cask "google-chrome"
 cask "keka"
 # Open-source keystroke visualiser
 cask "keycastr"
+# Optimise your webcam, headset, and Logi Dock for video meetings
+#TODO: Requires manual installation. `open /opt/homebrew-cask/Caskroom/logitune/.../LogiTuneInstaller.dmg`
+cask "logitune"
 # A local-first knowledge base
 cask "logseq"
 # Manages and monitores system resources. Req by Mac Mini.
