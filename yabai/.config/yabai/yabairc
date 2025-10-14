@@ -15,6 +15,9 @@ for app in "${unmanaged_apps[@]}"; do
     yabai -m rule --add app="^$app$" manage=off
 done
 
+# Unmanage Finder windows titled exactly "Copy" or "Trash" (without unmanaging all Finder windows)
+yabai -m rule --add app="^Finder$" title="^(Copy|Trash)$" manage=off
+
 # Initial Configuration
 NUM_DISPLAYS=$(yabai -m query --displays | jq '. | length')
 
