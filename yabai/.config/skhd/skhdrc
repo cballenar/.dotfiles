@@ -20,10 +20,10 @@ hyper - r : open /Applications/Logseq.app
 
 ## focus window - matches vim/tmux motions
 ## This assumes the primary display is on the right.
-hyper - h    : yabai -m window --focus west || yabai -m display --focus next
+hyper - h    : yabai -m window --focus west || yabai -m display --focus next || skhd --key "ctrl - 0x7B"
 hyper - j    : yabai -m window --focus south
 hyper - k    : yabai -m window --focus north
-hyper - l    : yabai -m window --focus east || yabai -m display --focus prev
+hyper - l    : yabai -m window --focus east || yabai -m display --focus prev || skhd --key "ctrl - 0x7C"
 hyper - 0x24 : yabai -m window --focus recent # enter
 
 ## increase/reduce width of window
