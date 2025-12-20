@@ -1,1 +1,4 @@
 logseq/.logseq/plugins/*
+
+# Ignore gatekeeper binary
+bin/.local/bin/gatekeeper
