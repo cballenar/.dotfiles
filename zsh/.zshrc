@@ -100,6 +100,7 @@ compinit
 # DDEV Docker Check
 # This function checks if Docker is running before executing a `ddev` command.
 # If Docker is not running, it attempts to start Docker and waits for it to be ready.
+# If no .ddev folder is found in the current directory, it checks for cms/.ddev and runs the command from there.
 if command -v ddev >/dev/null 2>&1; then
   function ddev() {
     if ! docker info >/dev/null 2>&1; then
@@ -107,7 +108,16 @@ if command -v ddev >/dev/null 2>&1; then
       open -a Docker
       sleep 5 
     fi
+    
+    # Check if .ddev exists in current directory
+    if [ -d ".ddev" ]; then
+      command ddev "$@"
+    elif [ -d "cms/.ddev" ]; then
+      echo "Running DDEV command from cms/ directory..."
+      (cd cms && command ddev "$@")
+    else
     command ddev "$@"
+    fi
   }
 fi
 
