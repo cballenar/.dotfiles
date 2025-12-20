@@ -1,7 +1,7 @@
 import AppKit
 import Foundation
 
-let hcUUID = "YOUR-UUID-HERE"
+let hcUUID = "GATEKEEPER_UUID_PLACEHOLDER"
 let baseUrl = "https://hc-ping.com/\(hcUUID)"
 
 func getUsefulInfo() -> String {
@@ -51,13 +51,13 @@ func triggerAlert(event: String) {
     sendRequest(urlString: "\(baseUrl)/fail", body: diagnosticInfo, retryAttempts: 5) {
         
         // 2. Log the data (Lower priority, fire and forget)
-    sendRequest(urlString: "\(baseUrl)/log", body: diagnosticInfo)
-    
-    // 3. Reset to Green after 10 seconds
+        sendRequest(urlString: "\(baseUrl)/log", body: diagnosticInfo)
+        
+        // 3. Reset to Green after 10 seconds
         // IMPORTANT: We only schedule this AFTER the fail signal has succeeded.
         // This prevents the "Race Condition" where a Reset might arrive before the Fail.
-    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-        sendRequest(urlString: baseUrl, body: "Resetting after alert.")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            sendRequest(urlString: baseUrl, body: "Resetting after alert.")
         }
     }
 }

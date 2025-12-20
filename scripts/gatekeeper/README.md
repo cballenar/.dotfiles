@@ -24,6 +24,7 @@ to system-level notifications.
 ## Project Structure
 
 - `gatekeeper.swift`: The Swift source code for the background daemon.
+- `build.sh`: Helper script to inject your UUID and compile the binary securely.
 - `gatekeeper`: The compiled binary (executable).
 - `com.yourname.gatekeeper.plist`: The macOS LaunchAgent configuration.
 
@@ -36,17 +37,22 @@ to system-level notifications.
 1. Set Grace to 1 minute.
 1. Copy your UUID for the steps below.
 
-### Prepare the Script
-
-Update the `hcUUID` variable in `gatekeeper.swift` with your UUID.
-
 ### Compile the Binary
 
-Run the following command in your terminal:
+We use a build script to inject your secret UUID so it's never committed to the
+repository.
 
-```bash
-swiftc gatekeeper.swift -o gatekeeper
-```
+1. Make the script executable:
+   ```bash
+   chmod +x build.sh
+   ```
+
+2. Run the build script with your Healthchecks.io UUID:
+   ```bash
+   GATEKEEPER_UUID=your-uuid-here ./build.sh
+   ```
+
+   _Replace `your-uuid-here` with the actual UUID from Step 1._
 
 ### Setup the LaunchAgent
 
