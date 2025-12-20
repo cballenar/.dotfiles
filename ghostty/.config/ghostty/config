@@ -1,0 +1,10 @@
+# pimp my ghostty
+theme=Dracula
+background-opacity=0.96
+background-blur=true
+font-family="FiraCode Nerd Font Mono Ret"
+#macos-titlebar-style=hidden
+#quick-terminal-animation-duration=0
+
+# these confirmations are so annoying
+confirm-close-surface=false

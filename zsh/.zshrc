@@ -10,7 +10,7 @@ if [ -z "$TERM" ] || [ "$TERM" = "dumb" ]; then
 fi
 
 # Start tmux if not already running
-if [ "$TERM_PROGRAM" != "vscode" ] && [ -z "$TMUX" ]; then
+if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "zed" ]] && [ -z "$TMUX" ]; then
   tmux attach || tmux
 fi
 
@@ -110,3 +110,12 @@ if command -v ddev >/dev/null 2>&1; then
     command ddev "$@"
   }
 fi
+
+export OLLAMA_HOST=0.0.0.0:11434
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/cballenar/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# Added by Antigravity
+export PATH="/Users/cballenar/.antigravity/antigravity/bin:$PATH"

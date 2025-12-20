@@ -50,8 +50,12 @@ brew "koekeishiya/formulae/yabai"
 
 # Password manager and secure digital vault
 cask "1password"
+# Google AI Coding Agent IDE
+cask "antigravity"
 # Client for Blizzard Entertainment games
 cask "battle-net"
+# 3D creation suite
+cask "blender"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
 # An AI-first code editor
@@ -66,12 +70,16 @@ cask "elgato-wave-link"
 cask "figma"
 # Font with programming ligatures and glyphs
 cask "font-fira-code-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Multi-platform 2D and 3D game engine
 cask "godot"
 # Google Drive for Desktop client
 cask "google-drive"
 # Web browser
 cask "google-chrome"
+# Google Cloud SDK
+cask "gcloud-init"
 # File archiver for macOS
 cask "keka"
 # Open-source keystroke visualiser
@@ -91,6 +99,8 @@ cask "obs"
 cask "obsidian"
 # Run LLaMA, Mistral, and other large language models locally
 cask "ollama"
+# G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
+cask "prusaslicer"
 # macOS launcher and automation tool
 cask "raycast"
 # Communication platform for teams
@@ -112,6 +122,8 @@ cask "vlc"
 cask "vmware-fusion"
 # All-in-one desktop app for WhatsApp
 cask "whatsapp"
+# Gecko based web browser
+cask "zen"
 # Video conferencing and meeting solution
 cask "zoom"
 

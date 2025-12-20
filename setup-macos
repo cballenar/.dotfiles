@@ -91,3 +91,7 @@ echo "💡 Remember to symlink the mobile backup directory manually if needed."
 #### mkdir /Volumes/SSD1/Backups/MobileSync/Backup
 #### rm -rf ~/Library/Application\ Support/MobileSync/Backup
 #### ln -s "/Volumes/SSD1/Backups/MobileSync/Backup" ~/Library/Application\ Support/MobileSync/
+
+# manually set login items
+# amphetamine, elgato wave link, google drive, noTunes, raycast
+echo "💡 Remember to manually set your login items in System Preferences > Users & Groups > Login Items"

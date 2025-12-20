@@ -3,20 +3,28 @@
 # https://www.youtube.com/watch?v=JL1lz77YbUE
 # https://mybyways.com/blog/global-hotkeys-for-macos-with-skhd
 
-## Close active application
-# hyper - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+# Backtick opens terminal
+hyper - 0x32: open /Applications/Ghostty.app
 
-## open terminal
-hyper - a : open /Applications/Google\ Chrome.app
-hyper - s : open /System/Applications/Utilities/Terminal.app
-hyper - d : open /Applications/Visual\ Studio\ Code.app
-hyper - f : open ~/Applications/ChatGPT.app
-hyper - g : open /Applications/Slack.app
-hyper - t : open /Applications/Microsoft\ Outlook.app
+# Core apps in homerow
+hyper - a : open /Applications/Zen.app
+hyper - s : open /Applications/Antigravity.app
+hyper - d : open /Applications/Logseq.app
+hyper - f : open /Applications/Slack.app
+hyper - g : open /Applications/Microsoft\ Outlook.app
+ 
 hyper - q : open /System/Applications/Passwords.app
 hyper - w : open /Applications/Spotify.app
 hyper - e : open ~/
-hyper - r : open /Applications/Logseq.app
+# hyper - r :
+# hyper - t :
+
+## restart yabai
+hyper - z : yabai --restart-service
+hyper - x : skhd --restart-service
+# hyper - c :
+# hyper - v :
+# hyper - b :
 
 ## focus window - matches vim/tmux motions
 ## This assumes the primary display is on the right.
@@ -65,11 +73,6 @@ hyper - n : yabai -m space --rotate 90
 
 ## toggle window split type
 #alt - e : yabai -m window --toggle split
-
-## restart yabai
-hyper - z : yabai --restart-service
-hyper - x : skhd --restart-service
-
 
 #! SIP Disabled Features
 ########################
