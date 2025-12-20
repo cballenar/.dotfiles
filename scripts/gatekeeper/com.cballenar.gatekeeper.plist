@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.user.gatekeeper</string>
+    <string>com.cballenar.gatekeeper</string>
     <key>ProgramArguments</key>
     <array>
         <string>/Users/cballenar/.local/bin/gatekeeper</string>
@@ -12,9 +12,5 @@
     <true/>
     <key>KeepAlive</key>
     <true/>
-    <key>StandardErrorPath</key>
-    <string>/tmp/gatekeeper.err</string>
-    <key>StandardOutPath</key>
-    <string>/tmp/gatekeeper.out</string>
 </dict>
 </plist>
