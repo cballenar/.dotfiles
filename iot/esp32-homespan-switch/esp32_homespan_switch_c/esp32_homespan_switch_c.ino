@@ -3,9 +3,10 @@
 // RELAY CONFIGURATION
 // Most 3-pin modules are 'Active Low' (0V = Trigger). 
 // If your relay stays ON all the time, swap HIGH and LOW below.
-#define RELAY_ON  LOW   
-#define RELAY_OFF HIGH
-const int RELAY_PIN = 10; 
+#define RELAY_ON  HIGH
+#define RELAY_OFF LOW
+const int RELAY_PIN = 9;
+const int PULSE_LENGTH = 600;
 
 struct GateBuzzer : Service::LockMechanism { 
   
@@ -30,8 +31,8 @@ struct GateBuzzer : Service::LockMechanism {
       digitalWrite(RELAY_PIN, RELAY_ON);
       lockCurrentState->setVal(0); 
 
-      // 300ms Pulse
-      delay(300);
+      // Pulse
+      delay(PULSE_LENGTH);
 
       digitalWrite(RELAY_PIN, RELAY_OFF);
       
