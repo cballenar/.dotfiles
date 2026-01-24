@@ -5,7 +5,7 @@ tap "koekeishiya/formulae"
 brew "bat"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
-# Disk usage analyzer with a tree view
+# Tool to analyze file system usage written in Rust
 brew "dutree"
 # Command-line fuzzy finder written in Go
 brew "fzf"
@@ -15,13 +15,11 @@ brew "gh"
 brew "git-lfs"
 # GNU implementation of the famous stream editor
 brew "gnu-sed"
-# GNU Pretty Good Privacy (PGP) package
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
-# An ultra-light MacOS utility that helps hide menu bar icons
-brew "hiddenbar"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Disk usage analyzer with an ncurses interface
+# NCurses Disk Usage
 brew "ncdu"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
@@ -48,83 +46,88 @@ brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai"
 
-# Password manager and secure digital vault
-cask "1password"
-# Google AI Coding Agent IDE
+# Password manager that keeps all passwords secure behind one password
+cask "1password@7"
+# AI Coding Agent IDE
 cask "antigravity"
-# Client for Blizzard Entertainment games
+# Online gaming platform
 cask "battle-net"
 # 3D creation suite
 cask "blender"
 # Open source IDE for exploring and testing APIs
 cask "bruno"
-# An AI-first code editor
+# Write, edit, and chat about your code with AI
 cask "cursor"
-# All-in-one voice and text chat for gamers
+# Voice and text chat software
 cask "discord"
-# Cross-platform desktop application for managing Docker containers
-cask "docker"
-# Audio mixing software for Elgato Wave microphones
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
+# Software custom-built for content creation
 cask "elgato-wave-link"
-# The collaborative interface design tool
+# Collaborative team software
 cask "figma"
 # Font with programming ligatures and glyphs
 cask "font-fira-code-nerd-font"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-# Multi-platform 2D and 3D game engine
+# Game development engine
 cask "godot"
-# Google Drive for Desktop client
-cask "google-drive"
 # Web browser
 cask "google-chrome"
-# Google Cloud SDK
-cask "gcloud-init"
-# File archiver for macOS
+# Client for the Google Drive storage service
+cask "google-drive"
+# Utility to hide menu bar items
+cask "hiddenbar"
+# File archiver
 cask "keka"
 # Open-source keystroke visualiser
 cask "keycastr"
 # Optimise your webcam, headset, and Logi Dock for video meetings
 #TODO: Requires manual installation. `open /opt/homebrew-cask/Caskroom/logitune/.../LogiTuneInstaller.dmg`
 cask "logitune"
-# A local-first knowledge base
+# Privacy-first, open-source platform for knowledge sharing and management
 cask "logseq"
-# Manages and monitores system resources. Req by Mac Mini.
+# Tool to control external monitor brightness & volume
 cask "monitorcontrol"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
-# Open Broadcaster Software for streaming and recording
+# Open-source software for live streaming and screen recording
 cask "obs"
-# A powerful knowledge base that works on local Markdown files
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Run LLaMA, Mistral, and other large language models locally
-cask "ollama"
+# Get up and running with large language models locally
+cask "ollama-app"
 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
 cask "prusaslicer"
-# macOS launcher and automation tool
+# Imaging utility to install operating systems to a microSD card
+cask "raspberry-pi-imager"
+# Control your tools with a few keystrokes
 cask "raycast"
-# Communication platform for teams
-cask "slack"
 # PDF reader and note-taking application
 cask "skim"
-# Music streaming service client
+# Team communication and collaboration software
+cask "slack"
+# Music streaming service
 cask "spotify"
-# Digital distribution platform for video games
+# Video game digital distribution service
 cask "steam"
-# Cross-platform GUI for QMK keyboards
+# Text editor for code, markup and prose
+cask "sublime-text"
+# Configurator of compatible keyboards in real time
 cask "vial"
-# Code editor by Microsoft
+# Open-source code editor
 cask "visual-studio-code"
-# Free and open source multimedia player
+# Multimedia player
 cask "vlc"
-# Virtualization software for macOS
-# Unfortunately this had issues with the authentication required to download the files. Manual installation may be required.
+# Create, manage, and run virtual machines
 cask "vmware-fusion"
-# All-in-one desktop app for WhatsApp
+# Native desktop client for WhatsApp
 cask "whatsapp"
 # Gecko based web browser
 cask "zen"
-# Video conferencing and meeting solution
+# Video communication and virtual meeting platform
 cask "zoom"
 
 vscode "aaron-bond.better-comments"
@@ -137,6 +140,7 @@ vscode "codezombiech.gitignore"
 vscode "dbaeumer.vscode-eslint"
 vscode "denoland.vscode-deno"
 vscode "docker.docker"
+vscode "dracula-theme.theme-dracula"
 vscode "eamodio.gitlens"
 vscode "editorconfig.editorconfig"
 vscode "esbenp.prettier-vscode"
