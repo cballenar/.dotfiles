@@ -129,3 +129,6 @@ export PATH="$PATH:/Users/cballenar/.lmstudio/bin"
 
 # Added by Antigravity
 export PATH="/Users/cballenar/.antigravity/antigravity/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/cballenar/.antigravity-ide/antigravity-ide/bin:$PATH"
