@@ -7,8 +7,8 @@
 hyper - 0x32: open /Applications/Ghostty.app
 
 # Core apps in homerow
-hyper - a : open /Applications/Zen.app
-hyper - s : open /Applications/Antigravity.app
+hyper - a : open /Applications/Google\ Chrome.app
+hyper - s : open /Applications/Antigravity\ IDE.app
 hyper - d : open /Applications/Logseq.app
 hyper - f : open /Applications/Slack.app
 hyper - g : open /Applications/Microsoft\ Outlook.app
