@@ -15,6 +15,11 @@ for app in "${unmanaged_apps[@]}"; do
     yabai -m rule --add app="^$app$" manage=off
 done
 
+# Reduce possible issues from macOS or SIP
+yabai -m config window_opacity off
+yabai -m config window_shadow off
+yabai -m config window_animation_duration 0.0
+
 # Unmanage Finder windows titled exactly "Copy" or "Trash" (without unmanaging all Finder windows)
 yabai -m rule --add app="^Finder$" title="^(Copy|Trash)$" manage=off
 

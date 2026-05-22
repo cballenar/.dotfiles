@@ -20,7 +20,7 @@ hyper - e : open ~/
 # hyper - t :
 
 ## restart yabai
-hyper - z : yabai --restart-service
+hyper - z : pkill yabai
 hyper - x : skhd --restart-service
 # hyper - c :
 # hyper - v :
@@ -51,7 +51,7 @@ hyper - u : yabai -m window --toggle float;\
 hyper - p : yabai -m query --spaces --space | jq -r '.type' | grep -q "stack" && yabai -m space --layout bsp || yabai -m space --layout stack
 
 ## swap windows (until it works...)
-hyper - m    : yabai -m window --swap west || yabai -m window --swap east || yabai -m window --swap north || yabai -m window --swap south
+hyper - m : yabai -m window --swap west || yabai -m window --swap east || yabai -m window --swap north || yabai -m window --swap south
 
 ## rotate tree 90
 hyper - n : yabai -m space --rotate 90
