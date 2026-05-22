@@ -1,0 +1,43 @@
+{
+  "workbench.activityBar.location": "top",
+  "explorer.confirmDragAndDrop": false,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.renderSideBySide": false,
+  "editor.rulers": [80],
+  "files.insertFinalNewline": true,
+  "notebook.insertFinalNewline": true,
+  "explorer.confirmDelete": false,
+  "git.confirmSync": false,
+  "json.schemaDownload.enable": true,
+  "emmet.triggerExpansionOnTab": true,
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "default",
+  },
+  "antigravity.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
+  "antigravity.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery",
+  "editor.fontFamily": "FiraCode Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
+  "workbench.editor.empty.hint": "hidden",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "notebook.lineNumbers": "on",
+  "explorer.confirmPasteNative": false,
+  "workbench.colorTheme": "Solarized Dark",
+  "window.autoDetectColorScheme": true,
+  "notebook.output.textLineLimit": 60,
+  "notebook.output.scrolling": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features",
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+  },
+}

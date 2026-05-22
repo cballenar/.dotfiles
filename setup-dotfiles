@@ -18,3 +18,18 @@ for folder in $(echo $DOT_FOLDERS | sed "s/,/ /g"); do
 		--ignore=README.md --ignore=LICENSE
 	stow -t $HOME $folder
 done
+
+echo "[+] Linking Editor Settings (VS Code & Antigravity)"
+mkdir -p "$HOME/Library/Application Support/Code/User"
+mkdir -p "$HOME/Library/Application Support/Antigravity IDE/User"
+
+# Remove existing files if they are not already symlinks (so ln -s can succeed)
+rm -f "$HOME/Library/Application Support/Code/User/settings.json"
+rm -f "$HOME/Library/Application Support/Code/User/keybindings.json"
+rm -f "$HOME/Library/Application Support/Antigravity IDE/User/settings.json"
+rm -f "$HOME/Library/Application Support/Antigravity IDE/User/keybindings.json"
+
+ln -sf "$SCRIPT_DIR/editor-settings/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+ln -sf "$SCRIPT_DIR/editor-settings/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+ln -sf "$SCRIPT_DIR/editor-settings/settings.json" "$HOME/Library/Application Support/Antigravity IDE/User/settings.json"
+ln -sf "$SCRIPT_DIR/editor-settings/keybindings.json" "$HOME/Library/Application Support/Antigravity IDE/User/keybindings.json"
