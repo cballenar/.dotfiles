@@ -11,6 +11,7 @@
 [alias]
   undo = "!f() { git reset --soft HEAD~${1:-1}; }; f"
 	dog = log --all --decorate --oneline --graph
+	gone = "!f() { git branch -vv | grep \": gone]\" | awk \"{print (\\$1 == \\\"*\\\" ? \\$2 : \\$1)}\" | xargs -r git branch -d; }; f"
 [core]
 	excludesfile = /Users/cballenar/.gitignore_global
 	editor = vi
@@ -25,3 +26,5 @@
 [maintenance]
 	repo = /Users/cballenar/Repositories/jhsph/jhsph
 	repo = /Users/cballenar/Repositories/un/undiario.pe
+[fetch]
+	prune = true
