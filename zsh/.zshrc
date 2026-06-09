@@ -21,13 +21,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Add .local/bin to $PATH
-export PATH=~/.local/bin:$PATH
-
-# Set Config Home
-# Shouldn't this be already set? Is it a macOS thing?
-export XDG_CONFIG_HOME="$HOME/.config"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -75,20 +68,11 @@ if [ -f '/Users/cballenar/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/c
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/cballenar/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cballenar/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Lando
-[ -d "$HOME/.lando/bin" ] && export PATH="$HOME/.lando/bin${PATH+:$PATH}"; #landopath
-
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/Users/cballenar/.zsh/completions:"* ]]; then export FPATH="/Users/cballenar/.zsh/completions:$FPATH"; fi
 
 # bun completions
 [ -s "/Users/cballenar/.bun/_bun" ] && source "/Users/cballenar/.bun/_bun"
-
-# bun
-if [ -d "$HOME/.bun/bin" ]; then
-  export BUN_INSTALL="$HOME/.bun"
-  export PATH="$BUN_INSTALL/bin:$PATH"
-fi
 
 # Deno
 [ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
@@ -106,9 +90,9 @@ if command -v ddev >/dev/null 2>&1; then
     if ! docker info >/dev/null 2>&1; then
       echo "Docker is not running. Starting Docker..."
       open -a Docker
-      sleep 5 
+      sleep 5
     fi
-    
+
     # Check if .ddev exists in current directory
     if [ -d ".ddev" ]; then
       command ddev "$@"
@@ -116,19 +100,7 @@ if command -v ddev >/dev/null 2>&1; then
       echo "Running DDEV command from cms/ directory..."
       (cd cms && command ddev "$@")
     else
-    command ddev "$@"
+      command ddev "$@"
     fi
   }
 fi
-
-export OLLAMA_HOST=0.0.0.0:11434
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/cballenar/.lmstudio/bin"
-# End of LM Studio CLI section
-
-# Added by Antigravity
-export PATH="/Users/cballenar/.antigravity/antigravity/bin:$PATH"
-
-# Added by Antigravity IDE
-export PATH="/Users/cballenar/.antigravity-ide/antigravity-ide/bin:$PATH"
