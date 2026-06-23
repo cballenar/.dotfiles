@@ -1,57 +1,40 @@
-# Global Aliases
-# These are meant to work even in dumb environments
+# Global Aliases (Meant to work even in dumb environments)
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-# Exit if the terminal is 'dumb'.
-# This was specifically added for the shell in Raycast.
-# It speeds it up and prevents more advanced commands from getting in the way.
+# Early Exits (Must be first to prevent unnecessary execution)
+# Exit if the terminal is 'dumb' (e.g., Raycast).
 if [ -z "$TERM" ] || [ "$TERM" = "dumb" ]; then
   return
 fi
 
+# Terminal Multiplexer Auto-start
 # Auto-start tmux only over SSH (local Ghostty handles its own tmux startup)
 if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "zed" ]] && [ -n "$SSH_CONNECTION" ] && [ -z "$TMUX" ]; then
   tmux attach -t main || tmux new -s main
 fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Powerlevel10k Instant Prompt
+# Must go after initialization that requires user input, but before everything else.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+# Zsh Environment Variables & History
 export ZSH="/Users/cballenar/.oh-my-zsh"
+export ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-HIST_STAMPS="yyyy-mm-dd"
 
 HISTSIZE=99999
 HISTFILESIZE=99999
+HIST_STAMPS="yyyy-mm-dd"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git gh thefuck fzf tmux zsh-autosuggestions zsh-syntax-highlighting you-should-use)
-
-export ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
+# Oh-My-Zsh Initialization
+plugins=(git gh thefuck fzf zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 source $ZSH/oh-my-zsh.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# Prompt Customization (Must be last UI modification)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Ends Zsh Customization
