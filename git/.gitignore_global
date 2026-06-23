@@ -3,11 +3,11 @@
 __pycache__
 .agent/
 
-# Ignore VSCode settings by default to respect other users' preferences.
+# Ignore IDE settings by default to respect other users' preferences.
 # Force stage settings if you want to share them.
 .vscode/settings.json
 .antigravity/settings.json
+.zed/settings.json
 
-# Ignore Drupal config files for local development.
-# Allows custom config without interferring with the team's codebase.
-config/local/
+# Specific ignores can be added to the project's .git/info/excludes file
+# The .git folder is never commited so this remains a local only config.
