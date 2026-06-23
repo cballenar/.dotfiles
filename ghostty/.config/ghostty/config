@@ -1,10 +1,22 @@
-# pimp my ghostty
-theme=Dracula
-background-opacity=0.96
-background-blur=true
-font-family="FiraCode Nerd Font Mono Ret"
-#macos-titlebar-style=hidden
-#quick-terminal-animation-duration=0
+# Pimp my ghostty
+theme = Dracula
+background-opacity = 0.96
+background-blur = true
+font-family = FiraCode Nerd Font Mono Ret
+window-decoration = false
+macos-option-as-alt = true
 
 # these confirmations are so annoying
 confirm-close-surface=false
+
+# Launch Tmux natively instead of relying on .zshrc
+command = tmux new-session -A -s main
+
+# Disable Ghostty's native splitting to let tmux handle it
+keybind = cmd+d=unbind
+keybind = cmd+shift+d=unbind
+keybind = cmd+t=unbind
+keybind = cmd+w=unbind
+
+# Disable due to tmux overlap
+copy-on-select = false

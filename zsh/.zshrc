@@ -9,9 +9,9 @@ if [ -z "$TERM" ] || [ "$TERM" = "dumb" ]; then
   return
 fi
 
-# Start tmux if not already running
-if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "zed" ]] && [ -z "$TMUX" ]; then
-  tmux attach || tmux
+# Auto-start tmux only over SSH (local Ghostty handles its own tmux startup)
+if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "zed" ]] && [ -n "$SSH_CONNECTION" ] && [ -z "$TMUX" ]; then
+  tmux attach -t main || tmux new -s main
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
