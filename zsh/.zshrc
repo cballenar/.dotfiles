@@ -20,6 +20,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Zsh Environment Variables & History
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
 export ZSH="/Users/cballenar/.oh-my-zsh"
 export ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
 
