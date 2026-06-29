@@ -7,6 +7,18 @@ if [ -z "$TERM" ] || [ "$TERM" = "dumb" ]; then
   return
 fi
 
+# Zsh Environment Variables & History
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export ZSH="/Users/cballenar/.oh-my-zsh"
+export ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+DISABLE_MAGIC_FUNCTIONS="true"
+HISTSIZE=99999
+HISTFILESIZE=99999
+HIST_STAMPS="yyyy-mm-dd"
+
 # Terminal Multiplexer Auto-start
 # Auto-start tmux over SSH, or locally in IDEs (local Ghostty handles its own tmux startup)
 if [[ -z "$TMUX" ]]; then
@@ -26,20 +38,6 @@ fi
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# Zsh Environment Variables & History
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-
-export ZSH="/Users/cballenar/.oh-my-zsh"
-export ZSH_TMUX_CONFIG="$XDG_CONFIG_HOME/tmux/tmux.conf"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-DISABLE_MAGIC_FUNCTIONS="true"
-
-HISTSIZE=99999
-HISTFILESIZE=99999
-HIST_STAMPS="yyyy-mm-dd"
 
 # Oh-My-Zsh Initialization
 plugins=(git gh thefuck fzf zsh-autosuggestions zsh-syntax-highlighting you-should-use)
