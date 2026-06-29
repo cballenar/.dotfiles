@@ -87,6 +87,12 @@ if command -v ddev >/dev/null 2>&1; then
       sleep 5
     fi
 
+    # Detect if we are in the root of a bare git repository with a "current" worktree branch
+    if [ "$(git rev-parse --is-bare-repository 2>/dev/null)" = "true" ] && [ -d "current" ]; then
+      echo "Detected bare repository root. Moving to 'current' worktree..."
+      cd current || return 1
+    fi
+
     # Check if .ddev exists in current directory
     if [ -d ".ddev" ]; then
       command ddev "$@"
