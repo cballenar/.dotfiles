@@ -8,9 +8,17 @@ if [ -z "$TERM" ] || [ "$TERM" = "dumb" ]; then
 fi
 
 # Terminal Multiplexer Auto-start
-# Auto-start tmux only over SSH (local Ghostty handles its own tmux startup)
-if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "zed" ]] && [ -n "$SSH_CONNECTION" ] && [ -z "$TMUX" ]; then
-  tmux attach -t main || tmux new -s main
+# Auto-start tmux over SSH, or locally in IDEs (local Ghostty handles its own tmux startup)
+if [[ -z "$TMUX" ]]; then
+  if [[ "$TERM_PROGRAM" == "vscode" || "$TERM_PROGRAM" == "zed" ]]; then
+    # IDEs: Create a unique session tied to the current project directory.
+    # $PWD:t gets the basename of the current directory, and we replace periods/colons with underscores.
+    SESSION_NAME="${${PWD:t}//[.:]/_}"
+    tmux attach -t "$SESSION_NAME" || tmux new -s "$SESSION_NAME"
+  elif [[ -n "$SSH_CONNECTION" ]]; then
+    # SSH: Default to the agnostic 'main' session.
+    tmux attach -t main || tmux new -s main
+  fi
 fi
 
 # Powerlevel10k Instant Prompt
