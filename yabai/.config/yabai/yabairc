@@ -15,6 +15,10 @@ for app in "${unmanaged_apps[@]}"; do
     yabai -m rule --add app="^$app$" manage=off
 done
 
+# Zoom needs to be unmanaged (floating) due to its non-resizable windows, 
+# and we default it to the same centered 4:4:1:1:2:2 grid you use in your skhdrc.
+yabai -m rule --add app="^zoom\.us$" manage=off grid=4:4:1:1:2:2
+
 # Reduce possible issues from macOS or SIP
 yabai -m config window_opacity off
 yabai -m config window_shadow off
