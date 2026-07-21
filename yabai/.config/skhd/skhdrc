@@ -12,7 +12,7 @@ hyper - s : open /Applications/Antigravity\ IDE.app
 hyper - d : open /Applications/Logseq.app
 hyper - f : open /Applications/Slack.app
 hyper - g : open /Applications/Microsoft\ Outlook.app
- 
+
 hyper - q : open /System/Applications/Passwords.app
 hyper - w : open /Applications/Spotify.app
 hyper - e : open ~/
