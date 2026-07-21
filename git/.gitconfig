@@ -13,6 +13,7 @@
 	dog = log --all --decorate --oneline --graph
 	gone = "!f() { git branch -vv | grep \": gone]\" | awk \"{print (\\$1 == \\\"*\\\" ? \\$2 : \\$1)}\" | xargs -r git branch -d; }; f"
 	peek = checkout --detach
+	amend-to = "!f() { git commit --squash \"$1\" && git rebase -i --autosquash --autostash \"$1~1\"; }; f"
 [core]
 	excludesfile = /Users/cballenar/.gitignore_global
 	editor = vi
