@@ -11,7 +11,7 @@
 [alias]
 	undo = "!f() { git reset --soft HEAD~${1:-1}; }; f"
 	dog = log --all --decorate --oneline --graph
-	gone = "!f() { git branch -vv | grep \": gone]\" | awk \"{print (\\$1 == \\\"*\\\" ? \\$2 : \\$1)}\" | xargs -r git branch -d; }; f"
+	gone = "!f() { git fetch --all -p -q; git branch -vv | awk '/: gone]/{print ($1==\"*\" || $1==\"+\" ? $2 : $1)}' | while read b; do wt=$(git worktree list 2>/dev/null | grep \" \\[$b\\]$\" | sed -E \"s| +[0-9a-f]+ \\[$b\\]$||\"); [ -n \"$wt\" ] && git worktree remove \"$wt\" 2>/dev/null; git branch -D \"$b\" >/dev/null 2>&1 && echo \"Cleaned up $b\" || echo \"Skipped $b (dirty or in use)\"; done; }; f"
 	peek = checkout --detach
 	amend-to = "!f() { git commit --squash \"$1\" && git rebase -i --autosquash --autostash \"$1~1\"; }; f"
 [core]
