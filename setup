@@ -1,3 +1,19 @@
+#!/usr/bin/env bash
+
+echo "WARNING: This is a full setup meant for new devices."
+printf "Do you want to continue? [y/N]: "
+read -r response
+
+case "$response" in
+    [yY][eE][sS]|[yY]) 
+        echo "Continuing setup..."
+        ;;
+    *)
+        echo "Setup aborted."
+        exit 1
+        ;;
+esac
+
 # Install Xcode Command Line Tools
 xcode-select --install
 
@@ -11,7 +27,7 @@ brew bundle install
 ./setup-dotfiles
 
 # Setup zsh
-./zsh/setup-zsh
+./setup-zsh
 
 # Add macOS
 ./setup-macos
