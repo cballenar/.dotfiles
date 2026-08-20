@@ -88,7 +88,7 @@ cask "keycastr"
 #TODO: Requires manual installation. `open /opt/homebrew-cask/Caskroom/logitune/.../LogiTuneInstaller.dmg`
 cask "logitune"
 # Privacy-first, open-source platform for knowledge sharing and management
-cask "logseq"
+cask "logseq-og"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
 # Simple application that will prevent iTunes or Apple Music from launching
