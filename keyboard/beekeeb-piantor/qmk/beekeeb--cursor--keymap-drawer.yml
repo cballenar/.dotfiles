@@ -1,0 +1,9 @@
+layout:
+  qmk_keyboard: beekeeb/piantor
+  layout_name: LAYOUT_split_3x6_3
+layers:
+  MOUSE:
+    - [{t: "L0", h: "toggle"}, null, "WH←", "WH↑", "WH↓", "WH→", "WH←", "WH↓", "WH↑", "WH→", null, {t: "L0", h: "toggle"}]
+    - [null, null, "MS←", "MS↑", "MS↓", "MS→", "MS←", "MS↓", "MS↑", "MS→", null, null]
+    - [null, null, "BTN3", "BTN2", "BTN1", null, null, "BTN1", "BTN2", "BTN3", null, null]
+    - [null, null, null, null, null, null]

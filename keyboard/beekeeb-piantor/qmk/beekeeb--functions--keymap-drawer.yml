@@ -1,0 +1,9 @@
+layout:
+  qmk_keyboard: beekeeb/piantor
+  layout_name: LAYOUT_split_3x6_3
+layers:
+  FUNCTIONS:
+    - ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"]
+    - [{t: "L10", h: "toggle"}, null, "NEXT", "PLAY", "VOL↑", "BRI↑", "BRI↑", "VOL↑", "PLAY", "NEXT", null, {t: "L10", h: "toggle"}]
+    - [{t: "L5", h: "toggle"}, {t: "L4", h: "toggle"}, "PREV", "MUTE", "VOL↓", "BRI↓", "BRI↓", "VOL↓", "MUTE", "PREV", {t: "L4", h: "toggle"}, {t: "L5", h: "toggle"}]
+    - [null, {type: "held"}, {type: "held"}, {type: "held"}, {type: "held"}, null]

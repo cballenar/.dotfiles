@@ -1,0 +1,19 @@
+layout:
+  qmk_keyboard: beekeeb/piantor
+  layout_name: LAYOUT_split_3x6_3
+layers:
+  L5:
+    - ["⌥", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", {t: "L0", h: "toggle"}]
+    - ["⌃", "A", "S", "D", "F", "G", "H", "J", "K", "L", {t: ";", s: ":"}, {t: "'", s: "\""}]
+    - ["⇧", "Z", "X", "C", "V", "B", "N", "M", {t: ",", s: "<"}, {t: ".", s: ">"}, {t: "/", s: "?"}, ""]
+    - [{t: "ESC", h: "L7"}, {t: "⇥", h: "L6"}, "␣", "⏎", {t: "⌦", h: "L6"}, {t: "⌫", h: "L7"}]
+  L6:
+    - [{t: "L0", h: "toggle"}, "1", "2", "3", "4", "5", null, null, null, null, null, null]
+    - [{t: "`", s: "~"}, "0", "9", "8", "7", "6", null, null, null, null, null, null]
+    - ["⇧", {t: "\\", s: "|"}, {t: "]", s: "}"}, {t: "[", s: "{"}, {t: "=", s: "+"}, {t: "-", s: "_"}, null, null, null, null, null, null]
+    - [null, {type: "held"}, "⏎", null, {type: "held"}, null]
+  L7:
+    - [{t: "L0", h: "toggle"}, "P", "O", "I", "U", "Y", null, null, null, null, null, null]
+    - [{t: "'", s: "\""}, {t: ";", s: ":"}, "L", "K", "J", "H", null, null, null, null, null, null]
+    - ["⇧", {t: "/", s: "?"}, {t: ".", s: ">"}, {t: ",", s: "<"}, "M", "N", null, null, null, null, null, null]
+    - [{type: "held"}, null, null, null, null, {type: "held"}]
