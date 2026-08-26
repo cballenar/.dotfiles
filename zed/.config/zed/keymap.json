@@ -1,0 +1,25 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+    {
+        "context": "Workspace",
+        "bindings": {
+            // Pseudo thread/project switcher. Not quite where I want it to be yet.
+            "ctrl-alt-tab": "agents_sidebar::ToggleThreadSwitcher",
+            "ctrl-alt-shift-tab": ["agents_sidebar::ToggleThreadSwitcher", { "select_last": true }],
+        }
+    },
+    {
+        "context": "Pane",
+        "bindings": {
+            // Gimme back direction based tab switching!
+            "ctrl-shift-tab": "pane::ActivatePreviousItem",
+            "ctrl-tab": "pane::ActivateNextItem"
+        }
+    }
+]

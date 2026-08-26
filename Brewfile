@@ -125,6 +125,8 @@ cask "vlc"
 cask "vmware-fusion"
 # Native desktop client for WhatsApp
 cask "whatsapp"
+# Multiplayer code editor
+cask "zed"
 # Gecko based web browser
 cask "zen"
 # Video communication and virtual meeting platform
