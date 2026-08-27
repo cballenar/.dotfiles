@@ -25,6 +25,8 @@ brew "ncdu"
 brew "ripgrep"
 # Readline wrapper: adds readline support to tools that lack it
 brew "rlwrap"
+# Swiss Army knife of sound processing tools
+brew "sox"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Programmatically correct mistyped console commands
@@ -62,8 +64,6 @@ cask "cursor"
 cask "discord"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
-# Software custom-built for content creation
-cask "elgato-wave-link"
 # Collaborative team software
 cask "figma"
 # Font with programming ligatures and glyphs

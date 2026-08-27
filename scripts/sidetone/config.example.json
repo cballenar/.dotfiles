@@ -1,0 +1,11 @@
+{
+  "target_input": "Elgato Wave Neo",
+  "target_output": "Elgato Wave Neo",
+  "buffer_size": 64,
+  "sox_path": "/opt/homebrew/bin/sox",
+  "sox_effects": [
+    "highpass 80",
+    "equalizer 200 1.0q +2.5",
+    "equalizer 3500 1.2q +2.0"
+  ]
+}
